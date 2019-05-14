@@ -1,31 +1,13 @@
 import React from 'react';
+import Retro from './Retro';
 
-const RetrosList = () => {
-    return (
-        <div className="retros-list section">
-            <div className="card z-depth-1 retro-summary">
-                <div className="card-content grey-text text-darken-3">
-                    <span className="card-title">Retro Title</span>
-                    <p>Added by the Scrum Master</p>
-                    <p className="grey-text">May 13th, 2 p.m.</p>
-                </div>
-            </div>
-            <div className="card z-depth-1 retro-summary">
-                <div className="card-content grey-text text-darken-3">
-                    <span className="card-title">Retro Title</span>
-                    <p>Added by the Scrum Master</p>
-                    <p className="grey-text">May 13th, 2 p.m.</p>
-                </div>
-            </div>
-            <div className="card z-depth-1 retro-summary">
-                <div className="card-content grey-text text-darken-3">
-                    <span className="card-title">Retro Title</span>
-                    <p>Added by the Scrum Master</p>
-                    <p className="grey-text">May 13th, 2 p.m.</p>
-                </div>
-            </div>
-        </div>
-    );
+const RetrosList = props => {
+    const { retros } = props;
+    const retrosList = retros.map(retro => {
+        return <Retro retro={retro} key={retro.id} />;
+    });
+
+    return <div className="retros-list section">{retrosList}</div>;
 };
 
 export default RetrosList;
