@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Retro = props => {
     const { title, author, date } = props.retro;
@@ -11,6 +12,10 @@ const Retro = props => {
             </div>
         </div>
     );
+};
+
+Retro.propTypes = {
+    retro: PropTypes.object
 };
 
 export default Retro;
