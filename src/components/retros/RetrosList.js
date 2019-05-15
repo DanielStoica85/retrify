@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Retro from './Retro';
 
 const RetrosList = props => {
@@ -8,6 +10,10 @@ const RetrosList = props => {
     });
 
     return <div className="retros-list section">{retrosList}</div>;
+};
+
+RetrosList.propTypes = {
+    retros: PropTypes.array
 };
 
 export default RetrosList;
