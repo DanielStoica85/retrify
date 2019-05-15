@@ -1,11 +1,12 @@
 import React from 'react';
 
-const RetroDetails = () => {
+const RetroDetails = props => {
+    const id = props.match.params.id;
     return (
         <div className="container section project-details">
             <div className="card">
                 <div className="card-content">
-                    <span className="card-title">Retro Title</span>
+                    <span className="card-title">Retro Title #{id} </span>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Perspiciatis velit ab optio eius corporis iste facilis,
