@@ -14,7 +14,7 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={Dashboard} />
                     <Route path="/retro/:id" component={RetroDetails} />
-                    <Route path="/addretro" component={AddRetro} />
+                    <Route path="/retro" component={AddRetro} />
                 </Switch>
             </div>
         </BrowserRouter>
