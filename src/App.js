@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import RetroDetails from './components/retros/RetroDetails';
+import AddRetro from './components/retros/AddRetro';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route path="/retro/:id" component={RetroDetails} />
-
+                    <Route path="/retro" component={AddRetro} />
                 </Switch>
             </div>
         </BrowserRouter>

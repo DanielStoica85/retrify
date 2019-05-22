@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const RetroDetails = props => {
     const id = props.match.params.id;
@@ -22,6 +23,10 @@ const RetroDetails = props => {
             </div>
         </div>
     );
+};
+
+RetroDetails.propTypes = {
+    match: PropTypes.object
 };
 
 export default RetroDetails;
