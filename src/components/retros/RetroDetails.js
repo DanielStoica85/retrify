@@ -5,7 +5,6 @@ import {
     CardBody,
     CardTitle,
     CardText,
-    CardSubtitle,
     CardFooter
 } from 'reactstrap';
 import PropTypes from 'prop-types';
