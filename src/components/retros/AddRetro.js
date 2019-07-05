@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Container, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class AddRetro extends Component {
     state = {
@@ -18,34 +19,32 @@ class AddRetro extends Component {
 
     render() {
         return (
-            <div className="container">
-                <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">Add Retro Board</h5>
-                    <div className="input-field">
-                        <label htmlFor="title">Retro Board Name</label>
-                        <input
+            <Container>
+                <Form onSubmit={this.handleSubmit}>
+                    <h4 className="grey-text text-darken-3">Add Retro Board</h4>
+                    <FormGroup>
+                        <Label for="title">Retro Board Name</Label>
+                        <Input
                             type="text"
                             name="title"
                             id="title"
                             onChange={this.handleChange}
                         />
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="description">Description</label>
-                        <textarea
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="description">Description</Label>
+                        <Input
+                            type="textarea"
                             name="description"
                             id="description"
-                            className="materialize-textarea"
                             onChange={this.handleChange}
                         />
-                    </div>
-                    <div className="input-field">
-                        <button className="btn pink lighten-1">
-                            Add Retro
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    </FormGroup>
+                    <FormGroup>
+                        <Button color="primary">Add Retro</Button>
+                    </FormGroup>
+                </Form>
+            </Container>
         );
     }
 }
