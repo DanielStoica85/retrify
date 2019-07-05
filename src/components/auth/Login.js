@@ -21,7 +21,7 @@ class Login extends Component {
         return (
             <Container>
                 <Form onSubmit={this.handleSubmit}>
-                    <h5 className="grey-text text-darken-3">Sign In</h5>
+                    <h4 className="text-black">Sign In</h4>
                     <FormGroup>
                         <Label for="email">Email</Label>
                         <Input
@@ -43,9 +43,7 @@ class Login extends Component {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Button color="primary" size="lg">
-                            Login
-                        </Button>
+                        <Button color="primary">Login</Button>
                     </FormGroup>
                 </Form>
             </Container>

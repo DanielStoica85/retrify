@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Container, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class Register extends Component {
     state = {
@@ -20,50 +21,54 @@ class Register extends Component {
 
     render() {
         return (
-            <div className="container">
-                <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">Sign Up</h5>
-                    <div className="input-field">
-                        <label htmlFor="email">Email</label>
-                        <input
+            <Container>
+                <Form onSubmit={this.handleSubmit}>
+                    <h4 className="text-black">Sign Up</h4>
+                    <FormGroup>
+                        <Label for="email">Email</Label>
+                        <Input
                             type="email"
                             name="email"
                             id="email"
+                            placeholder="Add your email..."
                             onChange={this.handleChange}
                         />
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="password">Password</label>
-                        <input
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="password">Password</Label>
+                        <Input
                             type="password"
                             name="password"
                             id="password"
+                            placeholder="Add your password..."
                             onChange={this.handleChange}
                         />
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="firstName">First Name</label>
-                        <input
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="firstName">First Name</Label>
+                        <Input
                             type="text"
                             name="firstName"
                             id="firstName"
+                            placeholder="Add your first name..."
                             onChange={this.handleChange}
                         />
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="lastName">Last Name</label>
-                        <input
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="lastName">Last Name</Label>
+                        <Input
                             type="text"
                             name="lastName"
                             id="lastName"
+                            placeholder="Add your last name..."
                             onChange={this.handleChange}
                         />
-                    </div>
-                    <div className="input-field">
-                        <button className="btn pink lighten-1">Sign up</button>
-                    </div>
-                </form>
-            </div>
+                    </FormGroup>
+                    <FormGroup>
+                        <Button color="primary">Sign Up</Button>
+                    </FormGroup>
+                </Form>
+            </Container>
         );
     }
 }
