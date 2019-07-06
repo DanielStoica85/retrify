@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RetrosList component renders correctly 1`] = `
+<div
+  className="retros-list section"
+>
+  <div>
+    <div
+      className="mt-3 card"
+    >
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title"
+        >
+          Some title
+        </div>
+        <div
+          className="card-subtitle"
+        >
+          Added by 
+          Some author
+        </div>
+      </div>
+      <div
+        className="card-footer"
+        style={
+          Object {
+            "backgroundColor": "lightgray",
+            "borderColor": "lightgray",
+          }
+        }
+      >
+        May 10th, 2019
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="mt-3 card"
+    >
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title"
+        >
+          Some title
+        </div>
+        <div
+          className="card-subtitle"
+        >
+          Added by 
+          Some author
+        </div>
+      </div>
+      <div
+        className="card-footer"
+        style={
+          Object {
+            "backgroundColor": "lightgray",
+            "borderColor": "lightgray",
+          }
+        }
+      >
+        May 10th, 2019
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="mt-3 card"
+    >
+      <div
+        className="card-body"
+      >
+        <div
+          className="card-title"
+        >
+          Some title
+        </div>
+        <div
+          className="card-subtitle"
+        >
+          Added by 
+          Some author
+        </div>
+      </div>
+      <div
+        className="card-footer"
+        style={
+          Object {
+            "backgroundColor": "lightgray",
+            "borderColor": "lightgray",
+          }
+        }
+      >
+        May 10th, 2019
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RetroDetails component renders correctly 1`] = `
+<div
+  className="retro-details container"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-body"
+    >
+      <div
+        className="card-title"
+      >
+        Retro Title #
+        123
+      </div>
+      <p
+        className="card-text"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis velit ab optio eius corporis iste facilis, sit eum distinctio inventore repudiandae obcaecati eveniet sunt, quisquam iure quaerat amet reiciendis error?
+      </p>
+    </div>
+    <div
+      className="card-footer"
+      style={
+        Object {
+          "backgroundColor": "lightgray",
+          "borderColor": "lightgray",
+        }
+      }
+    >
+      <div>
+        Posted by Daniel
+      </div>
+      <div>
+        May 13th, 2am
+      </div>
+    </div>
+  </div>
+</div>
+`;

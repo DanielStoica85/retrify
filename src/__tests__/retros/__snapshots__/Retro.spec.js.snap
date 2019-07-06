@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Retro component renders correctly 1`] = `
+<div>
+  <div
+    className="mt-3 card"
+  >
+    <div
+      className="card-body"
+    >
+      <div
+        className="card-title"
+      >
+        Test title
+      </div>
+      <div
+        className="card-subtitle"
+      >
+        Added by 
+        Test author
+      </div>
+    </div>
+    <div
+      className="card-footer"
+      style={
+        Object {
+          "backgroundColor": "lightgray",
+          "borderColor": "lightgray",
+        }
+      }
+    >
+      May 20, 2020
+    </div>
+  </div>
+</div>
+`;
