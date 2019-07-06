@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Container, Form, FormGroup, Label, Input } from 'reactstrap';
+import LabeledFormInput from '../layout/LabeledFormInput';
+import { Button, Container, Form, FormGroup } from 'reactstrap';
 
 class AddRetro extends Component {
     state = {
@@ -22,24 +23,23 @@ class AddRetro extends Component {
             <Container>
                 <Form onSubmit={this.handleSubmit}>
                     <h4 className="grey-text text-darken-3">Add Retro Board</h4>
-                    <FormGroup>
-                        <Label for="title">Retro Board Name</Label>
-                        <Input
-                            type="text"
-                            name="title"
-                            id="title"
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="description">Description</Label>
-                        <Input
-                            type="textarea"
-                            name="description"
-                            id="description"
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
+                    <LabeledFormInput
+                        labelText="Retro Board Name"
+                        labelFor="title"
+                        inputType="text"
+                        inputName="title"
+                        inputId="title"
+                        handleChange={this.handleChange}
+                    />
+                    <LabeledFormInput
+                        labelText="Description"
+                        labelFor="description"
+                        inputType="textarea"
+                        inputName="description"
+                        inputId="description"
+                        inputPlaceHolder="Give your board a description..."
+                        handleChange={this.handleChange}
+                    />
                     <FormGroup>
                         <Button color="primary">Add Retro</Button>
                     </FormGroup>

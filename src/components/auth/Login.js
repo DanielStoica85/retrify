@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Container, Form, FormGroup, Label, Input } from 'reactstrap';
+import LabeledFormInput from '../layout/LabeledFormInput';
+import { Button, Container, Form, FormGroup } from 'reactstrap';
 
 class Login extends Component {
     state = {
@@ -8,6 +9,7 @@ class Login extends Component {
     };
 
     handleChange = e => {
+        console.log('It is happening.');
         this.setState({
             [e.target.id]: e.target.value
         });
@@ -22,26 +24,24 @@ class Login extends Component {
             <Container>
                 <Form onSubmit={this.handleSubmit}>
                     <h4 className="text-black">Sign In</h4>
-                    <FormGroup>
-                        <Label for="email">Email</Label>
-                        <Input
-                            type="email"
-                            name="email"
-                            id="email"
-                            placeholder="Add your email..."
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="password">Password</Label>
-                        <Input
-                            type="password"
-                            name="password"
-                            id="password"
-                            placeholder="Add your password..."
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
+                    <LabeledFormInput
+                        labelText="Email"
+                        labelFor="email"
+                        inputType="email"
+                        inputName="email"
+                        inputId="email"
+                        inputPlaceholder="Add your email..."
+                        handleChange={this.handleChange}
+                    />
+                    <LabeledFormInput
+                        labelText="Password"
+                        labelFor="password"
+                        inputType="password"
+                        inputName="password"
+                        inputId="password"
+                        inputPlaceholder="Add your password..."
+                        handleChange={this.handleChange}
+                    />
                     <FormGroup>
                         <Button color="primary">Login</Button>
                     </FormGroup>

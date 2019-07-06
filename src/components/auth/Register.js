@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Container, Form, FormGroup, Label, Input } from 'reactstrap';
+import LabeledFormInput from '../layout/LabeledFormInput';
+import { Button, Container, Form, FormGroup } from 'reactstrap';
 
 class Register extends Component {
     state = {
@@ -24,46 +25,42 @@ class Register extends Component {
             <Container>
                 <Form onSubmit={this.handleSubmit}>
                     <h4 className="text-black">Sign Up</h4>
-                    <FormGroup>
-                        <Label for="email">Email</Label>
-                        <Input
-                            type="email"
-                            name="email"
-                            id="email"
-                            placeholder="Add your email..."
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="password">Password</Label>
-                        <Input
-                            type="password"
-                            name="password"
-                            id="password"
-                            placeholder="Add your password..."
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="firstName">First Name</Label>
-                        <Input
-                            type="text"
-                            name="firstName"
-                            id="firstName"
-                            placeholder="Add your first name..."
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="lastName">Last Name</Label>
-                        <Input
-                            type="text"
-                            name="lastName"
-                            id="lastName"
-                            placeholder="Add your last name..."
-                            onChange={this.handleChange}
-                        />
-                    </FormGroup>
+                    <LabeledFormInput
+                        labelText="Email"
+                        labelFor="email"
+                        inputType="email"
+                        inputName="email"
+                        inputId="email"
+                        inputPlaceholder="Add your email..."
+                        handleChange={this.handleChange}
+                    />
+                    <LabeledFormInput
+                        labelText="Password"
+                        labelFor="password"
+                        inputType="password"
+                        inputName="password"
+                        inputId="password"
+                        inputPlaceholder="Add your password..."
+                        handleChange={this.handleChange}
+                    />
+                    <LabeledFormInput
+                        labelText="First Name"
+                        labelFor="firstName"
+                        inputType="text"
+                        inputName="firstName"
+                        inputId="firstName"
+                        inputPlaceholder="Add your first name..."
+                        handleChange={this.handleChange}
+                    />
+                    <LabeledFormInput
+                        labelText="Last Name"
+                        labelFor="lastName"
+                        inputType="text"
+                        inputName="lastName"
+                        inputId="lastName"
+                        inputPlaceholder="Add your last name..."
+                        handleChange={this.handleChange}
+                    />
                     <FormGroup>
                         <Button color="primary">Sign Up</Button>
                     </FormGroup>
