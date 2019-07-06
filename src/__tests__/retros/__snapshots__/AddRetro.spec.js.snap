@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddRetro component renders correctly 1`] = `
+<div
+  className="container"
+>
+  <form
+    className=""
+    onSubmit={[Function]}
+  >
+    <h4
+      className="grey-text text-darken-3"
+    >
+      Add Retro Board
+    </h4>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor="title"
+      >
+        Retro Board Name
+      </label>
+      <input
+        className="form-control"
+        id="title"
+        name="title"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor="description"
+      >
+        Description
+      </label>
+      <textarea
+        className="form-control"
+        id="description"
+        name="description"
+        onChange={[Function]}
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <button
+        aria-label={null}
+        className="btn btn-primary"
+        onClick={[Function]}
+      >
+        Add Retro
+      </button>
+    </div>
+  </form>
+</div>
+`;

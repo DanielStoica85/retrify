@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignedOutLinks component renders correctly 1`] = `
+Array [
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="/register"
+      onClick={[Function]}
+    >
+      Sign Up
+    </a>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="/login"
+      onClick={[Function]}
+    >
+      Login
+    </a>
+  </li>,
+]
+`;

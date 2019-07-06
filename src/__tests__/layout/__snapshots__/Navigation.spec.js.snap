@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation component renders correctly 1`] = `
+<div>
+  <nav
+    className="mb-5 navbar navbar-expand-sm navbar-dark bg-dark"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="navbar-brand"
+        href="/"
+      >
+        Retrify
+      </a>
+      <button
+        className="navbar-toggler"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="collapse navbar-collapse"
+        style={Object {}}
+      >
+        <ul
+          className="ml-auto navbar-nav"
+        >
+          <li
+            className="nav-item"
+          >
+            <a
+              className="nav-link"
+              href="/register"
+              onClick={[Function]}
+            >
+              Sign Up
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              className="nav-link"
+              href="/login"
+              onClick={[Function]}
+            >
+              Login
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              className="nav-link"
+              href="/retro"
+              onClick={[Function]}
+            >
+              New Retro
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              className="nav-link"
+              href="/"
+              onClick={[Function]}
+            >
+              Log Out
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              className="nav-link"
+              href="/"
+              onClick={[Function]}
+            >
+              <span
+                className="badge badge-danger badge-pill"
+              >
+                D.S.
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+`;

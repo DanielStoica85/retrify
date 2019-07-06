@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignedInLinks component renders correctly 1`] = `
+Array [
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="/retro"
+      onClick={[Function]}
+    >
+      New Retro
+    </a>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="/"
+      onClick={[Function]}
+    >
+      Log Out
+    </a>
+  </li>,
+  <li
+    className="nav-item"
+  >
+    <a
+      className="nav-link"
+      href="/"
+      onClick={[Function]}
+    >
+      <span
+        className="badge badge-danger badge-pill"
+      >
+        D.S.
+      </span>
+    </a>
+  </li>,
+]
+`;

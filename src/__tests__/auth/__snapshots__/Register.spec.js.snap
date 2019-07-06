@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register component renders correctly 1`] = `
+<div
+  className="container"
+>
+  <form
+    className=""
+    onSubmit={[Function]}
+  >
+    <h4
+      className="text-black"
+    >
+      Sign Up
+    </h4>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="form-control"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        placeholder="Add your email..."
+        type="email"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        className="form-control"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        placeholder="Add your password..."
+        type="password"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor="firstName"
+      >
+        First Name
+      </label>
+      <input
+        className="form-control"
+        id="firstName"
+        name="firstName"
+        onChange={[Function]}
+        placeholder="Add your first name..."
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor="lastName"
+      >
+        Last Name
+      </label>
+      <input
+        className="form-control"
+        id="lastName"
+        name="lastName"
+        onChange={[Function]}
+        placeholder="Add your last name..."
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <button
+        aria-label={null}
+        className="btn btn-primary"
+        onClick={[Function]}
+      >
+        Sign Up
+      </button>
+    </div>
+  </form>
+</div>
+`;
