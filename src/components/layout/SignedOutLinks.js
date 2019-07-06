@@ -1,15 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, NavItem } from 'reactstrap';
 
 const SignedOutLinks = () => (
-    <ul className="right">
-        <li>
-            <NavLink to="/">Sign Up</NavLink>
-        </li>
-        <li>
-            <NavLink to="/">Login</NavLink>
-        </li>
-    </ul>
+    <React.Fragment>
+        <NavItem>
+            <NavLink href="/register">Sign Up</NavLink>
+        </NavItem>
+        <NavItem>
+            <NavLink href="/login">Login</NavLink>
+        </NavItem>
+    </React.Fragment>
 );
 
 export default SignedOutLinks;

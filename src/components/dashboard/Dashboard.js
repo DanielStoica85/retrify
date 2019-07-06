@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 import Notifications from './Notifications';
 import RetrosList from '../retros/RetrosList';
 
@@ -27,16 +28,16 @@ class Dashboard extends Component {
     };
     render() {
         return (
-            <div className="dashboard container">
-                <div className="row">
-                    <div className="col s12 m6">
+            <Container className="dashboard">
+                <Row>
+                    <Col sm="12" md="6">
                         <RetrosList retros={this.state.retros} />
-                    </div>
-                    <div className="col s12 m5 offset-m1">
+                    </Col>
+                    <Col sm="12" md={{ size: 5, offset: 1 }}>
                         <Notifications />
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LabeledFormInput from '../layout/LabeledFormInput';
+import { Button, Container, Form, FormGroup } from 'reactstrap';
 
 class Login extends Component {
     state = {
@@ -18,32 +20,32 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="container">
-                <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">Sign In</h5>
-                    <div className="input-field">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            name="password"
-                            id="password"
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className="input-field">
-                        <button className="btn pink lighten-1">Login</button>
-                    </div>
-                </form>
-            </div>
+            <Container>
+                <Form onSubmit={this.handleSubmit}>
+                    <h4 className="text-black">Sign In</h4>
+                    <LabeledFormInput
+                        labelText="Email"
+                        labelFor="email"
+                        inputType="email"
+                        inputName="email"
+                        inputId="email"
+                        inputPlaceholder="Add your email..."
+                        handleChange={this.handleChange}
+                    />
+                    <LabeledFormInput
+                        labelText="Password"
+                        labelFor="password"
+                        inputType="password"
+                        inputName="password"
+                        inputId="password"
+                        inputPlaceholder="Add your password..."
+                        handleChange={this.handleChange}
+                    />
+                    <FormGroup>
+                        <Button color="primary">Login</Button>
+                    </FormGroup>
+                </Form>
+            </Container>
         );
     }
 }

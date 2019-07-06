@@ -1,20 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, NavItem, Badge } from 'reactstrap';
 
 const SignedInLinks = () => (
-    <ul className="right">
-        <li>
-            <NavLink to="/">New Retro</NavLink>
-        </li>
-        <li>
-            <NavLink to="/">Log Out</NavLink>
-        </li>
-        <li>
-            <NavLink to="/" className="btn btn-floating pink lighten-1">
-                DS
+    <React.Fragment>
+        <NavItem>
+            <NavLink href="/retro">New Retro</NavLink>
+        </NavItem>
+        <NavItem>
+            <NavLink href="/">Log Out</NavLink>
+        </NavItem>
+        <NavItem>
+            <NavLink href="/">
+                <Badge color="danger" pill>
+                    D.S.
+                </Badge>
             </NavLink>
-        </li>
-    </ul>
+        </NavItem>
+    </React.Fragment>
 );
 
 export default SignedInLinks;
