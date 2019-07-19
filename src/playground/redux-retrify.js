@@ -165,34 +165,3 @@ store.dispatch(setStartDate());
 store.dispatch(setEndDate(999));
 
 // ---------------------------------------------------------
-
-// DEMO STATE (won't be used, just as a helper for me to have a good image of how the state would look like)
-
-const demoState = {
-    retros: [
-        {
-            title: 'First ',
-            author: 'Daniel',
-            createdAt: 'May 10th, 2019',
-            id: 1
-        },
-        {
-            title: 'Second',
-            author: 'Costel',
-            createdAt: 'May 10th, 2019',
-            id: 2
-        },
-        {
-            title: 'Third',
-            author: 'Gica',
-            createdAt: 'May 10th, 2019',
-            id: 3
-        }
-    ],
-    filters: {
-        text: 'second',
-        sortBy: 'date', // date or author
-        startDate: undefined,
-        endDate: undefined
-    }
-};
