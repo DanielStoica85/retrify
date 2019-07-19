@@ -1,10 +1,33 @@
 import { createStore, combineReducers } from 'redux';
+import uuid from 'uuid';
 
 // ACTION GENERATORS
+
+// Add retro
+const addRetro = ({ title = '', author = '', createdAt = 0 } = {}) => ({
+    type: 'ADD_RETRO',
+    retro: {
+        id: uuid(),
+        title,
+        author,
+        createdAt
+    }
+});
 
 // ---------------------------------------------------------
 
 // REDUCERS (handlers for the actions)
+
+const retrosReducerDefaultState = [];
+const retrosReducer = () => {};
+
+const filtersReducerDefaultState = {
+    text: '',
+    sortBy: 'date',
+    startDate: undefined,
+    endDate: undefined
+};
+const filtersReducer = () => {};
 
 // ---------------------------------------------------------
 
@@ -26,6 +49,9 @@ store.subscribe(() => {
 // ---------------------------------------------------------
 
 // DISPATCHING ACTIONS
+
+store.dispatch(addRetro());
+store.dispatch(addRetro({ title: 'Retro', author: 'Daniel', createdAt: 100 }));
 
 // ---------------------------------------------------------
 
