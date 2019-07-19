@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 // ACTION GENERATORS
 
@@ -10,13 +10,26 @@ import { createStore } from 'redux';
 
 // STORE CREATION
 
+const store = createStore(
+    combineReducers({
+        retros: retrosReducer,
+        filters: filtersReducer
+    })
+);
+
+// only used for dispplaying the store for testing purpose for now
+store.subscribe(() => {
+    const state = store.getState();
+    console.log(state);
+});
+
 // ---------------------------------------------------------
 
 // DISPATCHING ACTIONS
 
 // ---------------------------------------------------------
 
-// DEMO STATE (won't be used)
+// DEMO STATE (won't be used, just as a helper for me to have a good image of how the state would look like)
 
 const demoState = {
     retros: [
