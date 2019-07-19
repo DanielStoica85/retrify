@@ -14,12 +14,46 @@ const addRetro = ({ title = '', author = '', createdAt = 0 } = {}) => ({
     }
 });
 
+// Remove retro
+const removeRetro = id => ({
+    type: 'REMOVE_RETRO',
+    id
+});
+
+// Edit retro
+const editRetro = (id, updates) => ({
+    type: 'EDIT_RETRO',
+    id,
+    updates
+});
+
 // ---------------------------------------------------------
 
 // REDUCERS (handlers for the actions)
 
 const retrosReducerDefaultState = [];
-const retrosReducer = () => {};
+const retrosReducer = (state = retrosReducerDefaultState, action) => {
+    switch (action.type) {
+        case 'ADD_RETRO':
+            return [...state, action.retro];
+        case 'EDIT_RETRO':
+            return state.map(retro => {
+                if (retro.id === action.id) {
+                    return {
+                        ...retro,
+                        ...action.updates
+                    };
+                } else {
+                    return retro;
+                }
+            });
+        case 'REMOVE_RETRO':
+            return state.filter(retro => retro.id !== action.id);
+
+        default:
+            return state;
+    }
+};
 
 const filtersReducerDefaultState = {
     text: '',
@@ -27,7 +61,12 @@ const filtersReducerDefaultState = {
     startDate: undefined,
     endDate: undefined
 };
-const filtersReducer = () => {};
+const filtersReducer = (state = filtersReducerDefaultState, action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+};
 
 // ---------------------------------------------------------
 
@@ -50,8 +89,18 @@ store.subscribe(() => {
 
 // DISPATCHING ACTIONS
 
-store.dispatch(addRetro());
-store.dispatch(addRetro({ title: 'Retro', author: 'Daniel', createdAt: 100 }));
+// adding retros
+const firstRetro = store.dispatch(
+    addRetro({ title: 'First', author: 'Daniel', createdAt: 100 })
+);
+const secondRetro = store.dispatch(
+    addRetro({ title: 'Second', author: 'Costel', createdAt: 300 })
+);
+// editing retro
+store.dispatch(editRetro(firstRetro.retro.id, { author: 'Gica' }));
+store.dispatch(editRetro(secondRetro.retro.id, { title: 'Second Updated' }));
+// removing retro
+store.dispatch(removeRetro(firstRetro.retro.id));
 
 // ---------------------------------------------------------
 
