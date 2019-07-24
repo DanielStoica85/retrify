@@ -11,8 +11,13 @@ import AddRetro from './components/retros/AddRetro';
 
 import configureStore from './store/configureStore';
 
+import { addRetro } from './actions/retros';
+
 const store = configureStore();
 console.log(store.getState());
+
+store.dispatch(addRetro({ title: 'First', author: 'Daniel' }));
+store.dispatch(addRetro({ title: 'Second', author: 'Gica' }));
 
 function App() {
     return (
