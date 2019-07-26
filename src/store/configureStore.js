@@ -1,14 +1,8 @@
-import { createStore, combineReducers } from 'redux';
-import retrosReducer from '../reducers/retros';
-import filtersReducer from '../reducers/filters';
+import { createStore } from 'redux';
+import rootReducer from '../reducers/rootReducer';
 
 export default () => {
-    const store = createStore(
-        combineReducers({
-            retros: retrosReducer,
-            filters: filtersReducer
-        })
-    );
+    const store = createStore(rootReducer);
 
     return store;
 };

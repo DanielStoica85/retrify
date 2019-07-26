@@ -9,13 +9,13 @@ import {
 import PropTypes from 'prop-types';
 
 const Retro = props => {
-    const { title, author, date } = props.retro;
+    const { title, description, date } = props.retro;
     return (
         <div>
             <Card className="mt-3">
                 <CardBody>
                     <CardTitle>{title}</CardTitle>
-                    <CardSubtitle>Added by {author}</CardSubtitle>
+                    <CardSubtitle> {description}</CardSubtitle>
                 </CardBody>
                 <CardFooter
                     style={{
