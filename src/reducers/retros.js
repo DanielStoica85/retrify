@@ -1,5 +1,27 @@
 // Expenses reducer
-const retrosReducerDefaultState = [];
+const retrosReducerDefaultState = [
+    {
+        id: 1,
+        title: 'First Retro',
+        description:
+            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus in ipsum culpa, sint totam dignissimos reiciendis consequuntur iusto molestiae sit!',
+        date: 'May 1st, 2019'
+    },
+    {
+        id: 2,
+        title: 'Second Retro',
+        description:
+            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus in ipsum culpa, sint totam dignissimos reiciendis consequuntur iusto molestiae sit!',
+        date: 'May 1st, 2019'
+    },
+    {
+        id: 3,
+        title: 'Third Retro',
+        description:
+            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus in ipsum culpa, sint totam dignissimos reiciendis consequuntur iusto molestiae sit!',
+        date: 'May 1st, 2019'
+    }
+];
 
 export default (state = retrosReducerDefaultState, action) => {
     switch (action.type) {
