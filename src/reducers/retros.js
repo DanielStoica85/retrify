@@ -3,23 +3,26 @@ const retrosReducerDefaultState = [
     {
         id: 1,
         title: 'First Retro',
+        author: 'Gica',
         description:
-            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus in ipsum culpa, sint totam dignissimos reiciendis consequuntur iusto molestiae sit!',
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.',
         date: 'May 1st, 2019'
     },
     {
         id: 2,
         title: 'Second Retro',
+        author: 'Costel',
         description:
-            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus in ipsum culpa, sint totam dignissimos reiciendis consequuntur iusto molestiae sit!',
-        date: 'May 1st, 2019'
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.',
+        date: 'May 2nd, 2019'
     },
     {
         id: 3,
         title: 'Third Retro',
+        author: 'Miron',
         description:
-            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus in ipsum culpa, sint totam dignissimos reiciendis consequuntur iusto molestiae sit!',
-        date: 'May 1st, 2019'
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.',
+        date: 'May 3rd, 2019'
     }
 ];
 

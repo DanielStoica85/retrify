@@ -3,6 +3,7 @@ import uuid from 'uuid';
 // Add retro
 export const addRetro = ({
     title = '',
+    author = '',
     description = '',
     createdAt = 0
 } = {}) => ({
@@ -10,6 +11,7 @@ export const addRetro = ({
     retro: {
         id: uuid(),
         title,
+        author,
         description,
         createdAt
     }

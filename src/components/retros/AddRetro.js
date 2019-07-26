@@ -5,7 +5,8 @@ import { Button, Container, Form, FormGroup } from 'reactstrap';
 class AddRetro extends Component {
     state = {
         title: '',
-        description: ''
+        description: '',
+        author: ''
     };
 
     handleChange = e => {
@@ -29,6 +30,14 @@ class AddRetro extends Component {
                         inputType="text"
                         inputName="title"
                         inputId="title"
+                        handleChange={this.handleChange}
+                    />
+                    <LabeledFormInput
+                        labelText="Author Name"
+                        labelFor="author"
+                        inputType="text"
+                        inputName="author"
+                        inputId="author"
                         handleChange={this.handleChange}
                     />
                     <LabeledFormInput
