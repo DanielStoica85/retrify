@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import LabeledFormInput from '../layout/LabeledFormInput';
-import { Button, Form, FormGroup } from 'reactstrap';
+import { Button, Form, Label, FormGroup } from 'reactstrap';
+
+import moment from 'moment';
+import 'react-dates/initialize';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 class RetroForm extends Component {
     state = {
         title: '',
         description: '',
-        author: ''
+        author: '',
+        createdAt: moment(),
+        calendarFocused: false
     };
 
     handleChange = e => {
@@ -14,6 +21,15 @@ class RetroForm extends Component {
             [e.target.id]: e.target.value
         });
     };
+
+    handleDateChange = createdAt => {
+        this.setState(() => ({ createdAt }));
+    };
+
+    handleFocusChange = ({ focused }) => {
+        this.setState(() => ({ calendarFocused: focused }));
+    };
+
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
@@ -45,6 +61,19 @@ class RetroForm extends Component {
                     value={this.state.description}
                     handleChange={this.handleChange}
                 />
+                <FormGroup>
+                    <Label for="date-picker">Date</Label>
+                    <br />
+                    <SingleDatePicker
+                        date={this.state.createdAt}
+                        onDateChange={this.handleDateChange}
+                        focused={this.state.calendarFocused}
+                        onFocusChange={this.handleFocusChange}
+                        numberOfMonths={1}
+                        id="date-picker"
+                    />
+                </FormGroup>
+
                 <FormGroup>
                     <Button color="primary">Add Retro</Button>
                 </FormGroup>
