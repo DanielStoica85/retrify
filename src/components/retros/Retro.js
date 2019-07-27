@@ -9,7 +9,7 @@ import {
 import PropTypes from 'prop-types';
 
 const Retro = props => {
-    const { title, author, description, date } = props.retro;
+    const { title, author, description, createdAt } = props.retro;
     return (
         <div>
             <Card className="mt-3">
@@ -23,7 +23,7 @@ const Retro = props => {
                         borderColor: 'lightgray'
                     }}
                 >
-                    Added by {author} on {date}
+                    Added by {author} on {createdAt}
                 </CardFooter>
             </Card>
         </div>

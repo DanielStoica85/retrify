@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LabeledFormInput from '../layout/LabeledFormInput';
-import { Button, Form, Label, FormGroup } from 'reactstrap';
+import { Button, Form, Label, FormGroup, Alert } from 'reactstrap';
 
 import moment from 'moment';
 import 'react-dates/initialize';
@@ -13,7 +13,8 @@ class RetroForm extends Component {
         description: '',
         author: '',
         createdAt: moment(),
-        calendarFocused: false
+        calendarFocused: false,
+        error: ''
     };
 
     handleChange = e => {
@@ -34,13 +35,30 @@ class RetroForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        if (!this.state.title || !this.state.author || !this.state.createdAt) {
+            this.setState(() => ({
+                error:
+                    'Please provide a title, author name and a date for this retro.'
+            }));
+        } else {
+            this.setState(() => ({ error: '' }));
+            this.props.onSubmit({
+                title: this.state.title,
+                author: this.state.author,
+                description: this.state.description,
+                createdAt: this.state.createdAt.format('dddd, MMMM Do YYYY')
+            });
+        }
     };
 
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
+                {this.state.error && (
+                    <Alert color="danger">{this.state.error}</Alert>
+                )}
                 <LabeledFormInput
-                    labelText="Retro Board Name"
+                    labelText="Retro Board Name*"
                     labelFor="title"
                     inputType="text"
                     inputName="title"
@@ -49,7 +67,7 @@ class RetroForm extends Component {
                     handleChange={this.handleChange}
                 />
                 <LabeledFormInput
-                    labelText="Author Name"
+                    labelText="Author Name*"
                     labelFor="author"
                     inputType="text"
                     inputName="author"
@@ -68,7 +86,7 @@ class RetroForm extends Component {
                     handleChange={this.handleChange}
                 />
                 <FormGroup>
-                    <Label for="date-picker">Date</Label>
+                    <Label for="date-picker">Date*</Label>
                     <br />
                     <SingleDatePicker
                         date={this.state.createdAt}
