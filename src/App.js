@@ -8,11 +8,6 @@ import Register from './components/auth/Register';
 import RetroDetails from './components/retros/RetroDetails';
 import AddRetro from './components/retros/AddRetro';
 
-import configureStore from './store/configureStore';
-
-const store = configureStore();
-console.log(store.getState());
-
 function App() {
     return (
         <BrowserRouter>
