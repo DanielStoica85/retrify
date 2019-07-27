@@ -23,11 +23,17 @@ class RetroForm extends Component {
     };
 
     handleDateChange = createdAt => {
-        this.setState(() => ({ createdAt }));
+        if (createdAt) {
+            this.setState(() => ({ createdAt }));
+        }
     };
 
     handleFocusChange = ({ focused }) => {
         this.setState(() => ({ calendarFocused: focused }));
+    };
+
+    handleSubmit = e => {
+        e.preventDefault();
     };
 
     render() {
