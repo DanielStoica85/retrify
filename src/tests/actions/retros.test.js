@@ -4,8 +4,9 @@ describe('Retros action generator', () => {
     it('should generate addRetro action object with provided values', () => {
         const retro = {
             title: 'The retro',
-            author: '',
-            createdAt: 0
+            author: 'Costel',
+            description: 'Some description',
+            createdAt: 2000
         };
         const action = addRetro(retro);
 
@@ -27,6 +28,7 @@ describe('Retros action generator', () => {
                 id: expect.any(String),
                 title: '',
                 author: '',
+                description: '',
                 createdAt: 0
             }
         });
