@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import { addRetro, editRetro, removeRetro } from '../../actions/retros';
 
 describe('Retros action generator', () => {
@@ -6,8 +5,7 @@ describe('Retros action generator', () => {
         const retro = {
             title: 'The retro',
             author: '',
-            createdAt: 0,
-            id: uuid()
+            createdAt: 0
         };
         const action = addRetro(retro);
 
