@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import LabeledFormInput from '../layout/LabeledFormInput';
-import { Button, Container, Form, FormGroup } from 'reactstrap';
+import { Container } from 'reactstrap';
+
+import RetroForm from './RetroForm';
 
 class AddRetro extends Component {
     state = {
@@ -22,37 +23,8 @@ class AddRetro extends Component {
     render() {
         return (
             <Container>
-                <Form onSubmit={this.handleSubmit}>
-                    <h4 className="grey-text text-darken-3">Add Retro Board</h4>
-                    <LabeledFormInput
-                        labelText="Retro Board Name"
-                        labelFor="title"
-                        inputType="text"
-                        inputName="title"
-                        inputId="title"
-                        handleChange={this.handleChange}
-                    />
-                    <LabeledFormInput
-                        labelText="Author Name"
-                        labelFor="author"
-                        inputType="text"
-                        inputName="author"
-                        inputId="author"
-                        handleChange={this.handleChange}
-                    />
-                    <LabeledFormInput
-                        labelText="Description"
-                        labelFor="description"
-                        inputType="textarea"
-                        inputName="description"
-                        inputId="description"
-                        inputPlaceHolder="Give your board a description..."
-                        handleChange={this.handleChange}
-                    />
-                    <FormGroup>
-                        <Button color="primary">Add Retro</Button>
-                    </FormGroup>
-                </Form>
+                <h4 className="grey-text text-darken-3">Add Retro Board</h4>
+                <RetroForm />
             </Container>
         );
     }
