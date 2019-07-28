@@ -9,7 +9,8 @@ const LabeledFormInput = props => {
         inputName,
         inputId,
         inputPlaceholder,
-        handleChange
+        handleChange,
+        value
     } = props;
     return (
         <FormGroup>
@@ -20,6 +21,7 @@ const LabeledFormInput = props => {
                 id={inputId}
                 placeholder={inputPlaceholder}
                 onChange={handleChange}
+                value={value}
             />
         </FormGroup>
     );

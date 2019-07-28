@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import RetroDetails from './components/retros/RetroDetails';
 import AddRetro from './components/retros/AddRetro';
+import EditRetro from './components/retros/EditRetro';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/register" component={Register} />
                     <Route path="/retro/:id" component={RetroDetails} />
                     <Route path="/retro" component={AddRetro} />
+                    <Route path="/edit/:id" component={EditRetro} />
                 </Switch>
             </div>
         </BrowserRouter>
