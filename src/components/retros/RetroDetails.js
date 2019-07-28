@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
     Container,
+    Row,
+    Col,
     Card,
     CardBody,
     CardTitle,
     CardText,
-    CardFooter
+    CardFooter,
+    Button
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
@@ -26,8 +30,21 @@ const RetroDetails = props => {
                         borderColor: 'lightgray'
                     }}
                 >
-                    <div>Posted by {author}</div>
-                    <div>{createdAt}</div>
+                    <Row>
+                        <Col md="6">
+                            {' '}
+                            <div>
+                                Posted by {author} on {createdAt}.
+                            </div>
+                        </Col>
+                        <Col md="6">
+                            <Link to="/">
+                                <Button className="float-right" color="info">
+                                    Back to retros list
+                                </Button>
+                            </Link>
+                        </Col>
+                    </Row>
                 </CardFooter>
             </Card>
         </Container>
