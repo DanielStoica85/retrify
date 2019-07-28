@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Card,
     CardBody,
@@ -9,12 +10,14 @@ import {
 import PropTypes from 'prop-types';
 
 const Retro = props => {
-    const { title, author, description, createdAt } = props.retro;
+    const { title, author, description, createdAt, id } = props.retro;
     return (
         <div>
             <Card className="mt-3">
                 <CardBody>
-                    <CardTitle>{title}</CardTitle>
+                    <CardTitle>
+                        <Link to={'/retro/' + id}>{title}</Link>
+                    </CardTitle>
                     <CardSubtitle> {description}</CardSubtitle>
                 </CardBody>
                 <CardFooter
