@@ -6,7 +6,7 @@ const retrosReducerDefaultState = [
         author: 'Gica',
         description:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.',
-        createdAt: 'May 1st, 2019'
+        createdAt: 1564169537000
     },
     {
         id: 2,
@@ -14,7 +14,7 @@ const retrosReducerDefaultState = [
         author: 'Costel',
         description:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.',
-        createdAt: 'May 2nd, 2019'
+        createdAt: 1564255937000
     },
     {
         id: 3,
@@ -22,7 +22,7 @@ const retrosReducerDefaultState = [
         author: 'Miron',
         description:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.',
-        createdAt: 'May 3rd, 2019'
+        createdAt: 1564342337000
     }
 ];
 

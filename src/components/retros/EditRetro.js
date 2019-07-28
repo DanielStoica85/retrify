@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addRetro } from '../../actions/retros';
+import { editRetro } from '../../actions/retros';
 import { Container } from 'reactstrap';
 
 import RetroForm from './RetroForm';
@@ -12,8 +12,9 @@ const EditRetro = props => {
                 Edit Retro Board with id {props.match.params.id}
             </h4>
             <RetroForm
+                retro={props.retro}
                 onSubmit={retro => {
-                    props.dispatch(addRetro(retro));
+                    props.dispatch(editRetro(props.retro.id, retro));
                     props.history.push('/');
                 }}
             />
@@ -21,4 +22,11 @@ const EditRetro = props => {
     );
 };
 
-export default connect()(EditRetro);
+const mapStateToProps = (state, props) => {
+    const id = props.match.params.id;
+    return {
+        retro: state.retros.find(retro => retro.id.toString() === id)
+    };
+};
+
+export default connect(mapStateToProps)(EditRetro);
