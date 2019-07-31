@@ -5,7 +5,7 @@ import { Button, Form, Label, FormGroup, Alert } from 'reactstrap';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
+
 
 class RetroForm extends Component {
     constructor(props) {
