@@ -6,7 +6,6 @@ import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 
-
 class RetroForm extends Component {
     constructor(props) {
         super(props);
@@ -20,9 +19,24 @@ class RetroForm extends Component {
         };
     }
 
-    handleChange = e => {
+    handleTitleChange = e => {
+        const title = e.target.value;
         this.setState({
-            [e.target.id]: e.target.value
+            title
+        });
+    };
+
+    handleAuthorChange = e => {
+        const author = e.target.value;
+        this.setState({
+            author
+        });
+    };
+
+    handleDescriptionChange = e => {
+        const description = e.target.value;
+        this.setState({
+            description
         });
     };
 
@@ -67,7 +81,7 @@ class RetroForm extends Component {
                     inputName="title"
                     inputId="title"
                     value={this.state.title}
-                    handleChange={this.handleChange}
+                    handleChange={this.handleTitleChange}
                 />
                 <LabeledFormInput
                     labelText="Author Name*"
@@ -76,7 +90,7 @@ class RetroForm extends Component {
                     inputName="author"
                     inputId="author"
                     value={this.state.author}
-                    handleChange={this.handleChange}
+                    handleChange={this.handleAuthorChange}
                 />
                 <LabeledFormInput
                     labelText="Description"
@@ -86,7 +100,7 @@ class RetroForm extends Component {
                     inputId="description"
                     inputPlaceHolder="Give your board an (optional) description..."
                     value={this.state.description}
-                    handleChange={this.handleChange}
+                    handleChange={this.handleDescriptionChange}
                 />
                 <FormGroup>
                     <Label for="date-picker">Date*</Label>
