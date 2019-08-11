@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddRetro component should render correctly 1`] = `
+<Container
+  tag="div"
+>
+  <h4
+    className="grey-text text-darken-3"
+  >
+    Add Retro Board
+  </h4>
+  <RetroForm
+    onSubmit={[Function]}
+  />
+</Container>
+`;
