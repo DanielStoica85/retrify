@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignedInLinks component should render correctly 1`] = `
+<FormGroup
+  tag="div"
+>
+  <Label
+    tag="label"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  />
+  <Input
+    type="text"
+  />
+</FormGroup>
+`;

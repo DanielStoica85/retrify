@@ -2,24 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { editRetro } from '../../actions/retros';
 import { Container } from 'reactstrap';
-
 import RetroForm from './RetroForm';
 
-const EditRetro = props => {
-    return (
-        <Container>
-            <h4 className="grey-text text-darken-3">
-                Edit Retro Board with id {props.match.params.id}
-            </h4>
-            <RetroForm
-                retro={props.retro}
-                onSubmit={retro => {
-                    props.dispatch(editRetro(props.retro.id, retro));
-                    props.history.push('/');
-                }}
-            />
-        </Container>
-    );
+export class EditRetro extends React.Component {
+    onSubmit = retro => {
+        this.props.editRetro(this.props.retro.id, retro);
+        this.props.history.push('/');
+    };
+    render() {
+        return (
+            <Container>
+                <h4 className="grey-text text-darken-3">
+                    Edit Retro Board with id {this.props.match.params.id}
+                </h4>
+                <RetroForm retro={this.props.retro} onSubmit={this.onSubmit} />
+            </Container>
+        );
+    }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        editRetro: (id, retro) => dispatch(editRetro(id, retro))
+    };
 };
 
 const mapStateToProps = (state, props) => {
@@ -29,4 +34,7 @@ const mapStateToProps = (state, props) => {
     };
 };
 
-export default connect(mapStateToProps)(EditRetro);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(EditRetro);

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditRetro component should render correctly 1`] = `
+<Container
+  tag="div"
+>
+  <h4
+    className="grey-text text-darken-3"
+  >
+    Edit Retro Board with id 
+    2
+  </h4>
+  <RetroForm
+    onSubmit={[Function]}
+    retro={
+      Object {
+        "author": "Costel",
+        "createdAt": 1564255937000,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.",
+        "id": 2,
+        "title": "Second Retro",
+      }
+    }
+  />
+</Container>
+`;
