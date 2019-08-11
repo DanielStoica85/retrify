@@ -21,23 +21,17 @@ class RetroForm extends Component {
 
     handleTitleChange = e => {
         const title = e.target.value;
-        this.setState({
-            title
-        });
+        this.setState(() => ({ title }));
     };
 
     handleAuthorChange = e => {
         const author = e.target.value;
-        this.setState({
-            author
-        });
+        this.setState(() => ({ author }));
     };
 
     handleDescriptionChange = e => {
         const description = e.target.value;
-        this.setState({
-            description
-        });
+        this.setState(() => ({ description }));
     };
 
     handleDateChange = createdAt => {
