@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignedInLinks component should render correctly 1`] = `
+exports[`LabeledFormInput component should render correctly 1`] = `
 <FormGroup
   tag="div"
 >
