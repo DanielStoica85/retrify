@@ -4,17 +4,15 @@ import { AddRetro } from '../../../components/retros/AddRetro';
 import RetroForm from '../../../components/retros/RetroForm';
 import retros from '../../fixtures/retros';
 
-let handleSubmit, history, component;
+let addRetro, history, component;
 
 describe('AddRetro component', () => {
     beforeEach(() => {
-        handleSubmit = jest.fn();
+        addRetro = jest.fn();
         history = {
             push: jest.fn()
         };
-        component = shallow(
-            <AddRetro handleSubmit={handleSubmit} history={history} />
-        );
+        component = shallow(<AddRetro addRetro={addRetro} history={history} />);
     });
 
     it('should render correctly', () => {
@@ -24,6 +22,6 @@ describe('AddRetro component', () => {
     it('should handle onSubmit correctly', () => {
         component.find(RetroForm).prop('onSubmit')(retros[1]);
         expect(history.push).toHaveBeenLastCalledWith('/');
-        expect(handleSubmit).toHaveBeenLastCalledWith(retros[1]);
+        expect(addRetro).toHaveBeenLastCalledWith(retros[1]);
     });
 });

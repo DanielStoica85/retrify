@@ -5,8 +5,8 @@ import { Container } from 'reactstrap';
 import RetroForm from './RetroForm';
 
 export class AddRetro extends React.Component {
-    handleSubmit = retro => {
-        this.props.handleSubmit(retro);
+    addRetro = retro => {
+        this.props.addRetro(retro);
         this.props.history.push('/');
     };
 
@@ -14,7 +14,7 @@ export class AddRetro extends React.Component {
         return (
             <Container>
                 <h4 className="grey-text text-darken-3">Add Retro Board</h4>
-                <RetroForm onSubmit={this.handleSubmit} />
+                <RetroForm onSubmit={this.addRetro} />
             </Container>
         );
     }
@@ -22,7 +22,7 @@ export class AddRetro extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleSubmit: retro => dispatch(addRetro(retro))
+        addRetro: retro => dispatch(addRetro(retro))
     };
 };
 
