@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RetrosList component should render correctly with retros 1`] = `
+<div
+  className="retros-list section"
+>
+  <Retro
+    key="1"
+    retro={
+      Object {
+        "author": "Gica",
+        "createdAt": 1564169537000,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.",
+        "id": 1,
+        "title": "First Retro",
+      }
+    }
+  />
+  <Retro
+    key="2"
+    retro={
+      Object {
+        "author": "Costel",
+        "createdAt": 1564255937000,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.",
+        "id": 2,
+        "title": "Second Retro",
+      }
+    }
+  />
+  <Retro
+    key="3"
+    retro={
+      Object {
+        "author": "Miron",
+        "createdAt": 1564342337000,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.",
+        "id": 3,
+        "title": "Third Retro",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`RetrosList component should render correctly without retros 1`] = `
+<div
+  className="retros-list section"
+/>
+`;
