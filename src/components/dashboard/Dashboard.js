@@ -4,7 +4,7 @@ import Notifications from './Notifications';
 import RetrosList from '../retros/RetrosList';
 import { connect } from 'react-redux';
 
-class Dashboard extends Component {
+export class Dashboard extends Component {
     render() {
         return (
             <Container className="dashboard">

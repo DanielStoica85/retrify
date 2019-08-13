@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard component should render correctly 1`] = `
+<Container
+  className="dashboard"
+  tag="div"
+>
+  <Row
+    tag="div"
+  >
+    <Col
+      md="6"
+      sm="12"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <RetrosList />
+    </Col>
+    <Col
+      md={
+        Object {
+          "offset": 1,
+          "size": 5,
+        }
+      }
+      sm="12"
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Notifications />
+    </Col>
+  </Row>
+</Container>
+`;
