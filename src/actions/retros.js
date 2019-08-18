@@ -5,6 +5,7 @@ export const addRetro = ({
     title = '',
     author = '',
     description = '',
+    type = '',
     createdAt = 0
 } = {}) => ({
     type: 'ADD_RETRO',
@@ -13,6 +14,7 @@ export const addRetro = ({
         title,
         author,
         description,
+        type,
         createdAt
     }
 });

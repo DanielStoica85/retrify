@@ -6,6 +6,7 @@ describe('Retros action generator', () => {
             title: 'The retro',
             author: 'Costel',
             description: 'Some description',
+            type: 'What went well / What did not go well',
             createdAt: 2000
         };
         const action = addRetro(retro);
@@ -29,6 +30,7 @@ describe('Retros action generator', () => {
                 title: '',
                 author: '',
                 description: '',
+                type: '',
                 createdAt: 0
             }
         });

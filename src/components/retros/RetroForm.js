@@ -65,6 +65,7 @@ class RetroForm extends Component {
                 title: this.state.title,
                 author: this.state.author,
                 description: this.state.description,
+                type: this.state.type,
                 createdAt: this.state.createdAt.valueOf()
             });
         }
