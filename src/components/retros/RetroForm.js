@@ -105,11 +105,12 @@ class RetroForm extends Component {
                     handleChange={this.handleChange}
                 />
                 <LabeledFormSelect
-                    labelText="Type of Retrospective"
+                    labelText="Type of Retrospective*"
                     labelFor="type"
                     inputType="select"
                     inputName="type"
                     inputId="type"
+                    value={this.state.type}
                     options={[
                         'Select',
                         'What went well / What did not go well',

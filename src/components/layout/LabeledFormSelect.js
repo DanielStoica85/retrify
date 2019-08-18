@@ -10,7 +10,8 @@ const LabeledFormInput = props => {
         inputName,
         inputId,
         handleChange,
-        options
+        options,
+        value
     } = props;
 
     const typeOptions =
@@ -29,6 +30,7 @@ const LabeledFormInput = props => {
                 type={inputType}
                 name={inputName}
                 id={inputId}
+                value={value}
                 onChange={handleChange}
             >
                 {typeOptions}
@@ -43,6 +45,7 @@ LabeledFormInput.propTypes = {
     inputType: PropTypes.string,
     inputName: PropTypes.string,
     inputId: PropTypes.string,
+    value: PropTypes.string,
     handleChange: PropTypes.func,
     options: PropTypes.array
 };
