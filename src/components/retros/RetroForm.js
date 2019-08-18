@@ -8,14 +8,17 @@ import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
 class RetroForm extends Component {
-    state = {
-        title: '',
-        description: '',
-        author: '',
-        createdAt: moment(),
-        calendarFocused: false,
-        error: ''
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: props.retro ? props.retro.title : '',
+            description: props.retro ? props.retro.description : '',
+            author: props.retro ? props.retro.author : '',
+            createdAt: props.retro ? moment(props.retro.createdAt) : moment(),
+            calendarFocused: false,
+            error: ''
+        };
+    }
 
     handleChange = e => {
         this.setState({
@@ -46,7 +49,7 @@ class RetroForm extends Component {
                 title: this.state.title,
                 author: this.state.author,
                 description: this.state.description,
-                createdAt: this.state.createdAt.format('dddd, MMMM Do YYYY')
+                createdAt: this.state.createdAt.valueOf()
             });
         }
     };
@@ -97,9 +100,8 @@ class RetroForm extends Component {
                         id="date-picker"
                     />
                 </FormGroup>
-
                 <FormGroup>
-                    <Button color="primary">Add Retro</Button>
+                    <Button color="primary">Save Retro</Button>
                 </FormGroup>
             </Form>
         );

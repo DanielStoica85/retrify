@@ -1,15 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Card,
     CardBody,
     CardTitle,
     CardSubtitle,
-    CardFooter
+    CardFooter,
+    Button
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 const Retro = props => {
-    const { title, author, description, createdAt } = props.retro;
+    const { title, author, description, createdAt, id } = props.retro;
     return (
         <div>
             <Card className="mt-3">
@@ -24,6 +26,11 @@ const Retro = props => {
                     }}
                 >
                     Added by {author} on {createdAt}
+                    <Link to={`/edit/${id}`}>
+                        <Button color="primary" className="float-right">
+                            Edit Retro
+                        </Button>
+                    </Link>
                 </CardFooter>
             </Card>
         </div>
