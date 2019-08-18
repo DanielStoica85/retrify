@@ -16,7 +16,11 @@ const LabeledFormInput = props => {
     const typeOptions =
         options &&
         options.map(option => {
-            return <option key={option}>{option}</option>;
+            return (
+                <option value={option} key={option}>
+                    {option}
+                </option>
+            );
         });
     return (
         <FormGroup>

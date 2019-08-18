@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LabeledFormInput from '../layout/LabeledFormInput';
+import LabeledFormSelect from '../layout/LabeledFormSelect';
 import { Button, Form, Label, FormGroup, Alert } from 'reactstrap';
 
 import moment from 'moment';
@@ -14,6 +15,7 @@ class RetroForm extends Component {
             title: props.retro ? props.retro.title : '',
             description: props.retro ? props.retro.description : '',
             author: props.retro ? props.retro.author : '',
+            type: props.retro ? props.retro.type : '',
             createdAt: props.retro ? moment(props.retro.createdAt) : moment(),
             calendarFocused: false,
             error: ''
@@ -24,6 +26,15 @@ class RetroForm extends Component {
         this.setState({
             [e.target.id]: e.target.value
         });
+    };
+
+    handleTypeChange = e => {
+        const type = e.target.value;
+        if (type !== 'Select') {
+            this.setState({ type });
+        } else {
+            this.setState({ type: '' });
+        }
     };
 
     handleDateChange = createdAt => {
@@ -38,10 +49,15 @@ class RetroForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        if (!this.state.title || !this.state.author || !this.state.createdAt) {
+        if (
+            !this.state.title ||
+            !this.state.author ||
+            !this.state.createdAt ||
+            !this.state.type
+        ) {
             this.setState(() => ({
                 error:
-                    'Please provide a title, author name and a date for this retro.'
+                    'Please provide a title, author name, retro type and a date for this retro.'
             }));
         } else {
             this.setState(() => ({ error: '' }));
@@ -87,6 +103,19 @@ class RetroForm extends Component {
                     inputPlaceHolder="Give your board an (optional) description..."
                     value={this.state.description}
                     handleChange={this.handleChange}
+                />
+                <LabeledFormSelect
+                    labelText="Type of Retrospective"
+                    labelFor="type"
+                    inputType="select"
+                    inputName="type"
+                    inputId="type"
+                    options={[
+                        'Select',
+                        'What went well / What did not go well',
+                        'Start / Stop / Continue'
+                    ]}
+                    handleChange={this.handleTypeChange}
                 />
                 <FormGroup>
                     <Label for="date-picker">Date*</Label>
