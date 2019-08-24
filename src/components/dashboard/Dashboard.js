@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Notifications from './Notifications';
 import RetrosList from '../retros/RetrosList';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export class Dashboard extends Component {
     render() {
@@ -25,6 +26,10 @@ const mapStateToProps = state => {
     return {
         retros: state.retros
     };
+};
+
+Dashboard.propTypes = {
+    retros: PropTypes.array
 };
 
 export default connect(mapStateToProps)(Dashboard);
