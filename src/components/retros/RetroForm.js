@@ -6,6 +6,8 @@ import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 
+import PropTypes from 'prop-types';
+
 class RetroForm extends Component {
     constructor(props) {
         super(props);
@@ -115,5 +117,10 @@ class RetroForm extends Component {
         );
     }
 }
+
+RetroForm.propTypes = {
+    onSubmit: PropTypes.func,
+    retro: PropTypes.object
+};
 
 export default RetroForm;

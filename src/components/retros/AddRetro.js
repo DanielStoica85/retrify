@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addRetro } from '../../actions/retros';
 import { Container } from 'reactstrap';
 import RetroForm from './RetroForm';
+import PropTypes from 'prop-types';
 
 export class AddRetro extends React.Component {
     addRetro = retro => {
@@ -24,6 +25,10 @@ const mapDispatchToProps = dispatch => {
     return {
         addRetro: retro => dispatch(addRetro(retro))
     };
+};
+
+AddRetro.propTypes = {
+    addRetro: PropTypes.func
 };
 
 export default connect(

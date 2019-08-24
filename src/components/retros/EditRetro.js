@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { editRetro } from '../../actions/retros';
 import { Container } from 'reactstrap';
 import RetroForm from './RetroForm';
+import PropTypes from 'prop-types';
 
 export class EditRetro extends React.Component {
     onSubmit = retro => {
@@ -32,6 +33,10 @@ const mapStateToProps = (state, props) => {
     return {
         retro: state.retros.find(retro => retro.id.toString() === id)
     };
+};
+
+EditRetro.propTypes = {
+    editRetro: PropTypes.func
 };
 
 export default connect(
