@@ -1,20 +1,9 @@
-import uuid from 'uuid';
+import database from '../config/firebase';
 
 // Add retro
-export const addRetro = ({
-    title = '',
-    author = '',
-    description = '',
-    createdAt = 0
-} = {}) => ({
+export const addRetro = retro => ({
     type: 'ADD_RETRO',
-    retro: {
-        id: uuid(),
-        title,
-        author,
-        description,
-        createdAt
-    }
+    retro
 });
 
 // add retro to db and then to store
