@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Retro component should render correctly 1`] = `
+<div>
+  <Card
+    className="mt-3"
+    tag="div"
+  >
+    <CardBody
+      tag="div"
+    >
+      <CardTitle
+        tag="div"
+      >
+        First Retro
+      </CardTitle>
+      <CardSubtitle
+        tag="div"
+      >
+         
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.
+      </CardSubtitle>
+    </CardBody>
+    <CardFooter
+      style={
+        Object {
+          "backgroundColor": "lightgray",
+          "borderColor": "lightgray",
+        }
+      }
+      tag="div"
+    >
+      Added by 
+      Gica
+       on 
+      1564169537000
+      <Link
+        to="/edit/1"
+      >
+        <Button
+          className="float-right"
+          color="primary"
+          tag="button"
+        >
+          Edit Retro
+        </Button>
+      </Link>
+    </CardFooter>
+  </Card>
+</div>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignedInLinks component should render correctly 1`] = `
+<Fragment>
+  <NavItem
+    tag="li"
+  >
+    <NavLink
+      href="/register"
+      tag="a"
+    >
+      Sign Up
+    </NavLink>
+  </NavItem>
+  <NavItem
+    tag="li"
+  >
+    <NavLink
+      href="/login"
+      tag="a"
+    >
+      Login
+    </NavLink>
+  </NavItem>
+</Fragment>
+`;
