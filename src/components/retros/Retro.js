@@ -16,7 +16,9 @@ const Retro = props => {
         <div>
             <Card className="mt-3">
                 <CardBody>
-                    <CardTitle>{title}</CardTitle>
+                    <CardTitle>
+                        <Link to={'/retro/' + id}>{title}</Link>
+                    </CardTitle>
                     <CardSubtitle> {description}</CardSubtitle>
                 </CardBody>
                 <CardFooter
