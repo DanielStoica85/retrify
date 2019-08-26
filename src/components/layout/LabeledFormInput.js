@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 const LabeledFormInput = props => {
     const {
@@ -25,6 +26,17 @@ const LabeledFormInput = props => {
             />
         </FormGroup>
     );
+};
+
+LabeledFormInput.propTypes = {
+    labelText: PropTypes.string,
+    labelFor: PropTypes.string,
+    inputType: PropTypes.string,
+    inputName: PropTypes.string,
+    inputId: PropTypes.string,
+    inputPlaceholder: PropTypes.string,
+    handleChange: PropTypes.func,
+    value: PropTypes.string
 };
 
 export default LabeledFormInput;

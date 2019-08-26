@@ -5,7 +5,8 @@ import { Button, Form, Label, FormGroup, Alert } from 'reactstrap';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
+
+import PropTypes from 'prop-types';
 
 class RetroForm extends Component {
     constructor(props) {
@@ -20,10 +21,19 @@ class RetroForm extends Component {
         };
     }
 
-    handleChange = e => {
-        this.setState({
-            [e.target.id]: e.target.value
-        });
+    handleTitleChange = e => {
+        const title = e.target.value;
+        this.setState(() => ({ title }));
+    };
+
+    handleAuthorChange = e => {
+        const author = e.target.value;
+        this.setState(() => ({ author }));
+    };
+
+    handleDescriptionChange = e => {
+        const description = e.target.value;
+        this.setState(() => ({ description }));
     };
 
     handleDateChange = createdAt => {
@@ -67,7 +77,7 @@ class RetroForm extends Component {
                     inputName="title"
                     inputId="title"
                     value={this.state.title}
-                    handleChange={this.handleChange}
+                    handleChange={this.handleTitleChange}
                 />
                 <LabeledFormInput
                     labelText="Author Name*"
@@ -76,7 +86,7 @@ class RetroForm extends Component {
                     inputName="author"
                     inputId="author"
                     value={this.state.author}
-                    handleChange={this.handleChange}
+                    handleChange={this.handleAuthorChange}
                 />
                 <LabeledFormInput
                     labelText="Description"
@@ -86,7 +96,7 @@ class RetroForm extends Component {
                     inputId="description"
                     inputPlaceHolder="Give your board an (optional) description..."
                     value={this.state.description}
-                    handleChange={this.handleChange}
+                    handleChange={this.handleDescriptionChange}
                 />
                 <FormGroup>
                     <Label for="date-picker">Date*</Label>
@@ -107,5 +117,10 @@ class RetroForm extends Component {
         );
     }
 }
+
+RetroForm.propTypes = {
+    onSubmit: PropTypes.func,
+    retro: PropTypes.object
+};
 
 export default RetroForm;
