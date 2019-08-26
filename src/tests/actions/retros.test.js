@@ -1,36 +1,25 @@
-import { addRetro, editRetro, removeRetro } from '../../actions/retros';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import {
+    startAddRetro,
+    addRetro,
+    editRetro,
+    removeRetro
+} from '../../actions/retros';
+import database from '../../config/firebase';
+import retros from '../fixtures/retros';
+
+const middlewares = [thunk];
+const createMockStore = configureMockStore(middlewares);
 
 describe('Retros action generator', () => {
     it('should generate addRetro action object with provided values', () => {
-        const retro = {
-            title: 'The retro',
-            author: 'Costel',
-            description: 'Some description',
-            createdAt: 2000
-        };
-        const action = addRetro(retro);
+        const action = addRetro(retros[0]);
 
         expect(action).toEqual({
             type: 'ADD_RETRO',
-            retro: {
-                ...retro,
-                id: expect.any(String)
-            }
-        });
-    });
-
-    it('should generate addRetro action object with default values', () => {
-        const action = addRetro();
-
-        expect(action).toEqual({
-            type: 'ADD_RETRO',
-            retro: {
-                id: expect.any(String),
-                title: '',
-                author: '',
-                description: '',
-                createdAt: 0
-            }
+            retro: retros[0]
         });
     });
 
@@ -55,6 +44,70 @@ describe('Retros action generator', () => {
             type: 'EDIT_RETRO',
             id,
             updates
+        });
+    });
+});
+
+describe('Retros async actions', () => {
+    it('should add retro to database and then to store', done => {
+        const store = createMockStore({});
+        const newRetro = {
+            title: 'Test retro',
+            author: 'Test author',
+            createdAt: 8736823746,
+            description: 'Test description'
+        };
+
+        store.dispatch(startAddRetro(newRetro)).then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual([
+                {
+                    type: 'ADD_RETRO',
+                    retro: {
+                        id: expect.any(String),
+                        ...newRetro
+                    }
+                }
+            ]);
+
+            database
+                .ref(`retros/${actions[0].retro.id}`)
+                .once('value')
+                .then(snapshot => {
+                    expect(snapshot.val()).toEqual(newRetro);
+                    done();
+                });
+        });
+    });
+
+    it('should add default values retro to database and then to store', done => {
+        const store = createMockStore({});
+        const newRetro = {
+            title: '',
+            author: '',
+            createdAt: 0,
+            description: ''
+        };
+
+        store.dispatch(startAddRetro(newRetro)).then(() => {
+            const actions = store.getActions();
+            expect(actions).toEqual([
+                {
+                    type: 'ADD_RETRO',
+                    retro: {
+                        id: expect.any(String),
+                        ...newRetro
+                    }
+                }
+            ]);
+
+            database
+                .ref(`retros/${actions[0].retro.id}`)
+                .once('value')
+                .then(snapshot => {
+                    expect(snapshot.val()).toEqual(newRetro);
+                    done();
+                });
         });
     });
 });
