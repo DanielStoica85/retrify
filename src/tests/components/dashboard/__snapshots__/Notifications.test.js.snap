@@ -5,5 +5,13 @@ exports[`Notifications component should render correctly 1`] = `
   <p>
     Notifications
   </p>
+  <p>
+    You are running this application in
+     
+    <b>
+      test
+    </b>
+    .
+  </p>
 </div>
 `;

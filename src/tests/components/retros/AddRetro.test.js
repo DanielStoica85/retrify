@@ -4,15 +4,17 @@ import { AddRetro } from '../../../components/retros/AddRetro';
 import RetroForm from '../../../components/retros/RetroForm';
 import retros from '../../fixtures/retros';
 
-let addRetro, history, component;
+let startAddRetro, history, component;
 
 describe('AddRetro component', () => {
     beforeEach(() => {
-        addRetro = jest.fn();
+        startAddRetro = jest.fn();
         history = {
             push: jest.fn()
         };
-        component = shallow(<AddRetro addRetro={addRetro} history={history} />);
+        component = shallow(
+            <AddRetro startAddRetro={startAddRetro} history={history} />
+        );
     });
 
     it('should render correctly', () => {
@@ -22,6 +24,6 @@ describe('AddRetro component', () => {
     it('should handle onSubmit correctly', () => {
         component.find(RetroForm).prop('onSubmit')(retros[1]);
         expect(history.push).toHaveBeenLastCalledWith('/');
-        expect(addRetro).toHaveBeenLastCalledWith(retros[1]);
+        expect(startAddRetro).toHaveBeenLastCalledWith(retros[1]);
     });
 });
