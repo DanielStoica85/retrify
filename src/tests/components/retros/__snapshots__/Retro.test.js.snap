@@ -12,7 +12,11 @@ exports[`Retro component should render correctly 1`] = `
       <CardTitle
         tag="div"
       >
-        First Retro
+        <Link
+          to="/retro/1"
+        >
+          First Retro
+        </Link>
       </CardTitle>
       <CardSubtitle
         tag="div"

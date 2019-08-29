@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 AddRetro.propTypes = {
-    addRetro: PropTypes.func
+    startAddRetro: PropTypes.func
 };
 
 export default connect(
