@@ -44,3 +44,29 @@ export const editRetro = (id, updates) => ({
     id,
     updates
 });
+
+// Set retros
+export const setRetros = retros => ({
+    type: 'SET_RETROS',
+    retros
+});
+
+// Start set retros
+export const startSetRetros = () => {
+    return dispatch => {
+        return database
+            .ref('retros')
+            .once('value')
+            .then(snapshot => {
+                let retros = [];
+                snapshot.forEach(element => {
+                    retros.push({
+                        id: element.key,
+                        ...element
+                    });
+                });
+                console.log('Retros!!!!', retros);
+                dispatch(setRetros(retros));
+            });
+    };
+};
