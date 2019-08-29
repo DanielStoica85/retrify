@@ -17,7 +17,7 @@ exports[`EditRetro component should render correctly 1`] = `
         "author": "Costel",
         "createdAt": 1564255937000,
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.",
-        "id": 2,
+        "id": "2",
         "title": "Second Retro",
       }
     }

@@ -5,7 +5,9 @@ import {
     startAddRetro,
     addRetro,
     editRetro,
-    removeRetro
+    removeRetro,
+    setRetros,
+    startSetRetros
 } from '../../actions/retros';
 import database from '../../config/firebase';
 import retros from '../fixtures/retros';
@@ -46,9 +48,28 @@ describe('Retros action generator', () => {
             updates
         });
     });
+
+    it('should generate setExpenses action object', () => {
+        const action = setRetros(retros);
+        expect(action).toEqual({
+            type: 'SET_RETROS',
+            retros
+        });
+    });
 });
 
 describe('Retros async actions', () => {
+    beforeEach(done => {
+        // seed test db before each test
+        let retrosFixture = [];
+        retros.forEach(({ id, title, description, author, createdAt }) => {
+            retrosFixture[id] = { title, description, author, createdAt };
+        });
+        database
+            .ref('retros')
+            .set(retrosFixture)
+            .then(() => done());
+    });
     it('should add retro to database and then to store', done => {
         const store = createMockStore({});
         const newRetro = {
@@ -108,6 +129,19 @@ describe('Retros async actions', () => {
                     expect(snapshot.val()).toEqual(newRetro);
                     done();
                 });
+        });
+    });
+
+    it('should fetch retros from db', done => {
+        const store = createMockStore({});
+
+        store.dispatch(startSetRetros()).then(() => {
+            const actions = store.getActions();
+            expect(actions[0]).toEqual({
+                type: 'SET_RETROS',
+                retros
+            });
+            done();
         });
     });
 });
