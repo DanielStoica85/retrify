@@ -1,6 +1,5 @@
-import defaultRetros from '../tests/fixtures/retros';
 // Expenses reducer
-const retrosReducerDefaultState = defaultRetros;
+const retrosReducerDefaultState = [];
 
 export default (state = retrosReducerDefaultState, action) => {
     switch (action.type) {
@@ -19,7 +18,8 @@ export default (state = retrosReducerDefaultState, action) => {
             });
         case 'REMOVE_RETRO':
             return state.filter(retro => retro.id !== action.id);
-
+        case 'SET_RETROS':
+            return action.retros;
         default:
             return state;
     }

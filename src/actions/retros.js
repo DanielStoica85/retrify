@@ -62,10 +62,9 @@ export const startSetRetros = () => {
                 snapshot.forEach(element => {
                     retros.push({
                         id: element.key,
-                        ...element
+                        ...element.val()
                     });
                 });
-                console.log('Retros!!!!', retros);
                 dispatch(setRetros(retros));
             });
     };

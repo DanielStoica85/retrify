@@ -19,4 +19,5 @@ store.dispatch(startSetRetros()).then(() => {
         </Provider>,
         document.getElementById('root')
     );
+    console.log(store.getState());
 });

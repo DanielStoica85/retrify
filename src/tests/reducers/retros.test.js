@@ -4,7 +4,7 @@ import defaultRetros from '../fixtures/retros';
 describe('Retros reducer', () => {
     it('should setup default retro values', () => {
         const state = retrosReducer(undefined, { type: '@@INIT' });
-        expect(state).toEqual(defaultRetros);
+        expect(state).toEqual([]);
     });
 
     it('should add retro', () => {
@@ -61,5 +61,14 @@ describe('Retros reducer', () => {
             id: 123
         });
         expect(state).toEqual(defaultRetros);
+    });
+
+    it('should set retros', () => {
+        const action = {
+            type: 'SET_RETROS',
+            retros: [defaultRetros[1]]
+        };
+        const state = retrosReducer(defaultRetros, action);
+        expect(state).toEqual([defaultRetros[1]]);
     });
 });
