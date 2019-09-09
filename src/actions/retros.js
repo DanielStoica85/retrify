@@ -38,6 +38,18 @@ export const removeRetro = id => ({
     id
 });
 
+// remove retro from db
+export const startRemoveRetro = id => {
+    return dispatch => {
+        return database
+            .ref(`retros/${id}`)
+            .remove()
+            .then(() => {
+                dispatch(removeRetro(id));
+            });
+    };
+};
+
 // Edit retro
 export const editRetro = (id, updates) => ({
     type: 'EDIT_RETRO',

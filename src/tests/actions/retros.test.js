@@ -7,7 +7,8 @@ import {
     editRetro,
     removeRetro,
     setRetros,
-    startSetRetros
+    startSetRetros,
+    startRemoveRetro
 } from '../../actions/retros';
 import database from '../../config/firebase';
 import retros from '../fixtures/retros';
@@ -142,6 +143,27 @@ describe('Retros async actions', () => {
                 retros
             });
             done();
+        });
+    });
+
+    it('should remove retro from db and then from store', done => {
+        const store = createMockStore({});
+        const id = retros[2].id;
+
+        store.dispatch(startRemoveRetro(id)).then(() => {
+            const actions = store.getActions();
+            expect(actions[0]).toEqual({
+                type: 'REMOVE_RETRO',
+                id
+            });
+
+            database
+                .ref(`retros/id`)
+                .once('value')
+                .then(snapshot => {
+                    expect(snapshot.val()).toBeFalsy();
+                    done();
+                });
         });
     });
 });

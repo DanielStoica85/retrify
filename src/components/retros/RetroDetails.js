@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { startRemoveRetro } from '../../actions/retros';
 import {
     Container,
     Row,
@@ -14,42 +15,61 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const RetroDetails = props => {
-    const { title, description, author, createdAt } = props.retro;
+export class RetroDetails extends React.Component {
+    onRemove = () => {
+        this.props.startRemoveRetro(this.props.retro.id);
+        this.props.history.push('/');
+    };
 
-    return (
-        <Container className="retro-details">
-            <Card>
-                <CardBody>
-                    <CardTitle>{title}</CardTitle>
-                    <CardText>{description}</CardText>
-                </CardBody>
-                <CardFooter
-                    style={{
-                        backgroundColor: 'lightgray',
-                        borderColor: 'lightgray'
-                    }}
-                >
-                    <Row>
-                        <Col md="6">
-                            {' '}
-                            <div>
-                                Posted by {author} on {createdAt}.
-                            </div>
-                        </Col>
-                        <Col md="6">
-                            <Link to="/">
-                                <Button className="float-right" color="info">
-                                    Back to retros list
+    render() {
+        const { title, description, author, createdAt } = this.props.retro;
+
+        return (
+            <Container className="retro-details">
+                <Card>
+                    <CardBody>
+                        <CardTitle>{title}</CardTitle>
+                        <CardText>{description}</CardText>
+                    </CardBody>
+                    <CardFooter
+                        style={{
+                            backgroundColor: 'lightgray',
+                            borderColor: 'lightgray'
+                        }}
+                    >
+                        <Row>
+                            <Col md="8">
+                                {' '}
+                                <div>
+                                    Posted by {author} on {createdAt}.
+                                </div>
+                            </Col>
+                            <Col md="2">
+                                <Link to="/">
+                                    <Button
+                                        className="float-right"
+                                        color="info"
+                                    >
+                                        Back to retros list
+                                    </Button>
+                                </Link>
+                            </Col>
+                            <Col md="2">
+                                <Button
+                                    onClick={this.onRemove}
+                                    className="float-left"
+                                    color="danger"
+                                >
+                                    Remove retro
                                 </Button>
-                            </Link>
-                        </Col>
-                    </Row>
-                </CardFooter>
-            </Card>
-        </Container>
-    );
-};
+                            </Col>
+                        </Row>
+                    </CardFooter>
+                </Card>
+            </Container>
+        );
+    }
+}
 
 const mapStateToProps = (state, props) => {
     const id = props.match.params.id;
@@ -58,8 +78,17 @@ const mapStateToProps = (state, props) => {
     };
 };
 
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        startRemoveRetro: id => dispatch(startRemoveRetro(id))
+    };
+};
+
 RetroDetails.propTypes = {
     match: PropTypes.object
 };
 
-export default connect(mapStateToProps)(RetroDetails);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(RetroDetails);
