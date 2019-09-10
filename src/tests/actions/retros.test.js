@@ -5,7 +5,11 @@ import {
     startAddRetro,
     addRetro,
     editRetro,
-    removeRetro
+    removeRetro,
+    setRetros,
+    startSetRetros,
+    startRemoveRetro,
+    startEditRetro
 } from '../../actions/retros';
 import database from '../../config/firebase';
 import retros from '../fixtures/retros';
@@ -46,9 +50,28 @@ describe('Retros action generator', () => {
             updates
         });
     });
+
+    it('should generate setExpenses action object', () => {
+        const action = setRetros(retros);
+        expect(action).toEqual({
+            type: 'SET_RETROS',
+            retros
+        });
+    });
 });
 
 describe('Retros async actions', () => {
+    beforeEach(done => {
+        // seed test db before each test
+        let retrosFixture = [];
+        retros.forEach(({ id, title, description, author, createdAt }) => {
+            retrosFixture[id] = { title, description, author, createdAt };
+        });
+        database
+            .ref('retros')
+            .set(retrosFixture)
+            .then(() => done());
+    });
     it('should add retro to database and then to store', done => {
         const store = createMockStore({});
         const newRetro = {
@@ -109,5 +132,64 @@ describe('Retros async actions', () => {
                     done();
                 });
         });
+    });
+
+    it('should fetch retros from db', done => {
+        const store = createMockStore({});
+
+        store.dispatch(startSetRetros()).then(() => {
+            const actions = store.getActions();
+            expect(actions[0]).toEqual({
+                type: 'SET_RETROS',
+                retros
+            });
+            done();
+        });
+    });
+
+    it('should remove retro from db and then from store', done => {
+        const store = createMockStore({});
+        const id = retros[2].id;
+
+        store.dispatch(startRemoveRetro(id)).then(() => {
+            const actions = store.getActions();
+            expect(actions[0]).toEqual({
+                type: 'REMOVE_RETRO',
+                id
+            });
+
+            database
+                .ref(`retros/id`)
+                .once('value')
+                .then(snapshot => {
+                    expect(snapshot.val()).toBeFalsy();
+                    done();
+                });
+        });
+    });
+
+    it('should update retro in db and then in store', done => {
+        const store = createMockStore({});
+        const id = retros[2].id;
+        const updates = {
+            author: 'The Scrum Master'
+        };
+
+        store.dispatch(startEditRetro(id, updates)).then(() => {
+            const actions = store.getActions();
+            expect(actions[0]).toEqual({
+                type: 'EDIT_RETRO',
+                id,
+                updates
+            });
+        });
+
+        return database
+            .ref(`retros/${id}`)
+            .once('value')
+            .then(snapshot => {
+                expect(snapshot.val().author).toBe(updates.author);
+                done();
+            });
     });
 });

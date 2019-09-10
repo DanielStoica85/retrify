@@ -4,7 +4,7 @@ import defaultRetros from '../fixtures/retros';
 describe('Retros reducer', () => {
     it('should setup default retro values', () => {
         const state = retrosReducer(undefined, { type: '@@INIT' });
-        expect(state).toEqual(defaultRetros);
+        expect(state).toEqual([]);
     });
 
     it('should add retro', () => {
@@ -26,7 +26,7 @@ describe('Retros reducer', () => {
     it('should edit retro with valid id', () => {
         const action = {
             type: 'EDIT_RETRO',
-            id: 1,
+            id: '1',
             updates: {
                 author: 'The Tester'
             }
@@ -38,7 +38,7 @@ describe('Retros reducer', () => {
     it('should not edit retro with id not found', () => {
         const action = {
             type: 'EDIT_RETRO',
-            id: 123,
+            id: '123',
             updates: {
                 author: 'The Tester'
             }
@@ -50,7 +50,7 @@ describe('Retros reducer', () => {
     it('should remove retro with valid id', () => {
         const state = retrosReducer(defaultRetros, {
             type: 'REMOVE_RETRO',
-            id: 1
+            id: '1'
         });
         expect(state).toEqual([defaultRetros[1], defaultRetros[2]]);
     });
@@ -58,8 +58,17 @@ describe('Retros reducer', () => {
     it('should not remove retro with id not found', () => {
         const state = retrosReducer(defaultRetros, {
             type: 'REMOVE_RETRO',
-            id: 123
+            id: '123'
         });
         expect(state).toEqual(defaultRetros);
+    });
+
+    it('should set retros', () => {
+        const action = {
+            type: 'SET_RETROS',
+            retros: [defaultRetros[1]]
+        };
+        const state = retrosReducer(defaultRetros, action);
+        expect(state).toEqual([defaultRetros[1]]);
     });
 });

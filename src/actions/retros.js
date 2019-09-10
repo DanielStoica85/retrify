@@ -38,9 +38,58 @@ export const removeRetro = id => ({
     id
 });
 
+// remove retro from db
+export const startRemoveRetro = id => {
+    return dispatch => {
+        return database
+            .ref(`retros/${id}`)
+            .remove()
+            .then(() => {
+                dispatch(removeRetro(id));
+            });
+    };
+};
+
 // Edit retro
 export const editRetro = (id, updates) => ({
     type: 'EDIT_RETRO',
     id,
     updates
 });
+
+// Start edit retro
+export const startEditRetro = (id, updates) => {
+    return dispatch => {
+        return database
+            .ref(`retros/${id}`)
+            .update(updates)
+            .then(() => {
+                dispatch(editRetro(id, updates));
+            });
+    };
+};
+
+// Set retros
+export const setRetros = retros => ({
+    type: 'SET_RETROS',
+    retros
+});
+
+// Start set retros
+export const startSetRetros = () => {
+    return dispatch => {
+        return database
+            .ref('retros')
+            .once('value')
+            .then(snapshot => {
+                let retros = [];
+                snapshot.forEach(element => {
+                    retros.push({
+                        id: element.key,
+                        ...element.val()
+                    });
+                });
+                dispatch(setRetros(retros));
+            });
+    };
+};

@@ -1,6 +1,6 @@
 export default [
     {
-        id: 1,
+        id: '1',
         title: 'First Retro',
         author: 'Gica',
         description:
@@ -8,7 +8,7 @@ export default [
         createdAt: 1564169537000
     },
     {
-        id: 2,
+        id: '2',
         title: 'Second Retro',
         author: 'Costel',
         description:
@@ -16,7 +16,7 @@ export default [
         createdAt: 1564255937000
     },
     {
-        id: 3,
+        id: '3',
         title: 'Third Retro',
         author: 'Miron',
         description:
