@@ -8,7 +8,8 @@ import {
     removeRetro,
     setRetros,
     startSetRetros,
-    startRemoveRetro
+    startRemoveRetro,
+    startEditRetro
 } from '../../actions/retros';
 import database from '../../config/firebase';
 import retros from '../fixtures/retros';
@@ -165,5 +166,30 @@ describe('Retros async actions', () => {
                     done();
                 });
         });
+    });
+
+    it('should update retro in db and then in store', done => {
+        const store = createMockStore({});
+        const id = retros[2].id;
+        const updates = {
+            author: 'The Scrum Master'
+        };
+
+        store.dispatch(startEditRetro(id, updates)).then(() => {
+            const actions = store.getActions();
+            expect(actions[0]).toEqual({
+                type: 'EDIT_RETRO',
+                id,
+                updates
+            });
+        });
+
+        return database
+            .ref(`retros/${id}`)
+            .once('value')
+            .then(snapshot => {
+                expect(snapshot.val().author).toBe(updates.author);
+                done();
+            });
     });
 });

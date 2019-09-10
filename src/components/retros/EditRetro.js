@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { editRetro } from '../../actions/retros';
+import { startEditRetro } from '../../actions/retros';
 import { Container } from 'reactstrap';
 import RetroForm from './RetroForm';
 import PropTypes from 'prop-types';
 
 export class EditRetro extends React.Component {
     onSubmit = retro => {
-        this.props.editRetro(this.props.retro.id, retro);
+        this.props.startEditRetro(this.props.retro.id, retro);
         this.props.history.push('/');
     };
     render() {
@@ -24,7 +24,7 @@ export class EditRetro extends React.Component {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        editRetro: (id, retro) => dispatch(editRetro(id, retro))
+        startEditRetro: (id, retro) => dispatch(startEditRetro(id, retro))
     };
 };
 
@@ -36,7 +36,7 @@ const mapStateToProps = (state, props) => {
 };
 
 EditRetro.propTypes = {
-    editRetro: PropTypes.func
+    startEditRetro: PropTypes.func
 };
 
 export default connect(

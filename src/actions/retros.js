@@ -57,6 +57,18 @@ export const editRetro = (id, updates) => ({
     updates
 });
 
+// Start edit retro
+export const startEditRetro = (id, updates) => {
+    return dispatch => {
+        return database
+            .ref(`retros/${id}`)
+            .update(updates)
+            .then(() => {
+                dispatch(editRetro(id, updates));
+            });
+    };
+};
+
 // Set retros
 export const setRetros = retros => ({
     type: 'SET_RETROS',

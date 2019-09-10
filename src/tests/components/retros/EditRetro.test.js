@@ -4,11 +4,11 @@ import { EditRetro } from '../../../components/retros/EditRetro';
 import RetroForm from '../../../components/retros/RetroForm';
 import retros from '../../fixtures/retros';
 
-let editRetro, history, component, match;
+let startEditRetro, history, component, match;
 
 describe('EditRetro component', () => {
     beforeEach(() => {
-        editRetro = jest.fn();
+        startEditRetro = jest.fn();
         history = {
             push: jest.fn()
         };
@@ -19,7 +19,7 @@ describe('EditRetro component', () => {
         };
         component = shallow(
             <EditRetro
-                editRetro={editRetro}
+                startEditRetro={startEditRetro}
                 history={history}
                 retro={retros[1]}
                 match={match}
@@ -34,6 +34,9 @@ describe('EditRetro component', () => {
     it('should handle onSubmit correctly', () => {
         component.find(RetroForm).prop('onSubmit')(retros[1]);
         expect(history.push).toHaveBeenLastCalledWith('/');
-        expect(editRetro).toHaveBeenLastCalledWith(retros[1].id, retros[1]);
+        expect(startEditRetro).toHaveBeenLastCalledWith(
+            retros[1].id,
+            retros[1]
+        );
     });
 });
