@@ -8,6 +8,7 @@ import Register from './components/auth/Register';
 import RetroDetails from './components/retros/RetroDetails';
 import AddRetro from './components/retros/AddRetro';
 import EditRetro from './components/retros/EditRetro';
+import PrivateRoute from './components/hoc/PrivateRoute';
 
 function App() {
     return (
@@ -15,12 +16,12 @@ function App() {
             <div className="App">
                 <Navigation />
                 <Switch>
-                    <Route exact path="/" component={Dashboard} />
+                    <PrivateRoute exact path="/" component={Dashboard} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
-                    <Route path="/retro/:id" component={RetroDetails} />
-                    <Route path="/retro" component={AddRetro} />
-                    <Route path="/edit/:id" component={EditRetro} />
+                    <PrivateRoute path="/retro/:id" component={RetroDetails} />
+                    <PrivateRoute path="/retro" component={AddRetro} />
+                    <PrivateRoute path="/edit/:id" component={EditRetro} />
                 </Switch>
             </div>
         </BrowserRouter>

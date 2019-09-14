@@ -11,6 +11,7 @@ import { startSetRetros } from './actions/retros';
 const store = createStore();
 
 store.firebaseAuthIsReady.then(() => {
+    console.log('ready!');
     store.dispatch(startSetRetros()).then(() => {
         ReactDOM.render(
             <Provider store={store}>
