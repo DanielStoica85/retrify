@@ -11,6 +11,8 @@ import {
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 
+import { connect } from 'react-redux';
+
 class Navigation extends Component {
     state = {
         isOpen: false
@@ -42,4 +44,9 @@ class Navigation extends Component {
     }
 }
 
-export default Navigation;
+const mapStateToProps = state => {
+    console.log(state.firebase.auth);
+    return {};
+};
+
+export default connect(mapStateToProps)(Navigation);

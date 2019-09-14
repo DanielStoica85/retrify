@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import LabeledFormInput from '../layout/LabeledFormInput';
-import { Button, Container, Form, FormGroup } from 'reactstrap';
+import { Button, Container, Form, FormGroup, Alert } from 'reactstrap';
+import { connect } from 'react-redux';
+import { login } from '../../actions/auth';
 
 class Login extends Component {
     state = {
@@ -16,9 +18,11 @@ class Login extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        this.props.login(this.state);
     };
 
     render() {
+        const { authError } = this.props;
         return (
             <Container>
                 <Form onSubmit={this.handleSubmit}>
@@ -44,10 +48,28 @@ class Login extends Component {
                     <FormGroup>
                         <Button color="primary">Login</Button>
                     </FormGroup>
+                    {authError ? (
+                        <Alert color="danger">{authError}</Alert>
+                    ) : null}
                 </Form>
             </Container>
         );
     }
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        authError: state.auth.authError
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        login: credentials => dispatch(login(credentials))
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login);

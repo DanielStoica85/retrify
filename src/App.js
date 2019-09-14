@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import Main from './components/container/Main';
 import Navigation from './components/layout/Navigation';
 import Dashboard from './components/dashboard/Dashboard';
 import Login from './components/auth/Login';
@@ -15,7 +16,8 @@ function App() {
             <div className="App">
                 <Navigation />
                 <Switch>
-                    <Route exact path="/" component={Dashboard} />
+                    <Route exact path="/" component={Main} />
+                    <Route path="/dashboard" component={Dashboard} />
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Register} />
                     <Route path="/retro/:id" component={RetroDetails} />
