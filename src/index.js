@@ -10,14 +10,15 @@ import { startSetRetros } from './actions/retros';
 
 const store = createStore();
 
-ReactDOM.render(<p>Loading retros...</p>, document.getElementById('root'));
-
-store.dispatch(startSetRetros()).then(() => {
-    ReactDOM.render(
-        <Provider store={store}>
-            <App />
-        </Provider>,
-        document.getElementById('root')
-    );
-    console.log(store.getState());
+store.firebaseAuthIsReady.then(() => {
+    store.dispatch(startSetRetros()).then(() => {
+        ReactDOM.render(
+            <Provider store={store}>
+                <App />
+            </Provider>,
+            document.getElementById('root')
+        );
+    });
 });
+
+// ReactDOM.render(<p>Loading retros...</p>, document.getElementById('root'));

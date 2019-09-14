@@ -9,7 +9,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const config = {
     userProfile: 'users',
-    enableLogging: false
+    enableLogging: false,
+    attachAuthIsReady: true
 };
 
 export default () => {
@@ -19,9 +20,7 @@ export default () => {
         composeEnhancers(
             reactReduxFirebase(firebase, config), // pass in firebase instance instead of config
             reduxFirestore(firebase),
-            applyMiddleware(
-                thunk.withExtraArgument({ getFirebase, getFirestore })
-            )
+            applyMiddleware(thunk)
         )
     );
 

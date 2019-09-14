@@ -14,3 +14,14 @@ export const login = credentials => {
             });
     };
 };
+
+export const logout = () => {
+    return dispatch => {
+        firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                dispatch({ type: 'LOGOUT_SUCCESS' });
+            });
+    };
+};

@@ -16,6 +16,8 @@ export default (state = authReducerDefaultState, action) => {
                 ...state,
                 authError: 'Login failed'
             };
+        case 'LOGOUT_SUCCESS':
+            return state;
         default:
             return state;
     }

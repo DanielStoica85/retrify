@@ -25,6 +25,8 @@ class Navigation extends Component {
     };
 
     render() {
+        const { auth } = this.props;
+        const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
         return (
             <div>
                 <Navbar color="dark" dark expand="sm" className="mb-5">
@@ -33,8 +35,7 @@ class Navigation extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
-                                <SignedOutLinks />
-                                <SignedInLinks />
+                                {links}
                             </Nav>
                         </Collapse>
                     </Container>
@@ -45,8 +46,9 @@ class Navigation extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state.firebase.auth);
-    return {};
+    return {
+        auth: state.firebase.auth
+    };
 };
 
 export default connect(mapStateToProps)(Navigation);
