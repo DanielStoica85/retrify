@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 
-const PrivateRoute = ({ auth, component: Component, ...rest }) => {
+const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => {
     return (
         <Route
             {...rest}
-            render={props =>
-                auth.uid ? (
+            component={props =>
+                isAuthenticated ? (
                     <Component {...props} />
                 ) : (
                     <Redirect
@@ -24,7 +24,7 @@ const PrivateRoute = ({ auth, component: Component, ...rest }) => {
 
 const mapStateToProps = state => {
     return {
-        auth: state.firebase.auth
+        isAuthenticated: !!state.firebase.auth.uid
     };
 };
 
