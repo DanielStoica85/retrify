@@ -8,7 +8,8 @@ export const addRetro = retro => ({
 
 // add retro to db and then to store
 export const startAddRetro = (retroData = {}) => {
-    return dispatch => {
+    return (dispatch, getState) => {
+        const uid = getState().firebase.auth.uid;
         const {
             title = '',
             description = '',
@@ -19,7 +20,7 @@ export const startAddRetro = (retroData = {}) => {
         const retro = { title, description, createdAt, author };
 
         return database
-            .ref('retros')
+            .ref(`users/${uid}/retros`)
             .push(retro)
             .then(ref => {
                 dispatch(
@@ -40,9 +41,10 @@ export const removeRetro = id => ({
 
 // remove retro from db
 export const startRemoveRetro = id => {
-    return dispatch => {
+    return (dispatch, getState) => {
+        const uid = getState().firebase.auth.uid;
         return database
-            .ref(`retros/${id}`)
+            .ref(`users/${uid}/retros/${id}`)
             .remove()
             .then(() => {
                 dispatch(removeRetro(id));
@@ -59,9 +61,10 @@ export const editRetro = (id, updates) => ({
 
 // Start edit retro
 export const startEditRetro = (id, updates) => {
-    return dispatch => {
+    return (dispatch, getState) => {
+        const uid = getState().firebase.auth.uid;
         return database
-            .ref(`retros/${id}`)
+            .ref(`users/${uid}/retros/${id}`)
             .update(updates)
             .then(() => {
                 dispatch(editRetro(id, updates));
@@ -77,9 +80,10 @@ export const setRetros = retros => ({
 
 // Start set retros
 export const startSetRetros = () => {
-    return dispatch => {
+    return (dispatch, getState) => {
+        const uid = getState().firebase.auth.uid;
         return database
-            .ref('retros')
+            .ref(`users/${uid}/retros`)
             .once('value')
             .then(snapshot => {
                 let retros = [];

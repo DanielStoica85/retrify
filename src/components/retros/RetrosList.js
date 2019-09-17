@@ -15,7 +15,7 @@ const RetrosList = props => {
         <div className="retros-list section">
             <p>Retros</p>
             {retros.length > 0 ? (
-                <p>{retrosList}</p>
+                <div>{retrosList}</div>
             ) : (
                 <p>
                     You currently have no retros. Click{' '}

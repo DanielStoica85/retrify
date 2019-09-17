@@ -19,16 +19,6 @@ exports[`SignedInLinks component should render correctly 1`] = `
       href="/"
       tag="a"
     >
-      Log Out
-    </NavLink>
-  </NavItem>
-  <NavItem
-    tag="li"
-  >
-    <NavLink
-      href="/"
-      tag="a"
-    >
       <Badge
         color="danger"
         pill={true}
@@ -37,6 +27,16 @@ exports[`SignedInLinks component should render correctly 1`] = `
         D.S.
       </Badge>
     </NavLink>
+  </NavItem>
+  <NavItem
+    tag="li"
+  >
+    <Button
+      color="secondary"
+      tag="button"
+    >
+      Log Out
+    </Button>
   </NavItem>
 </Fragment>
 `;
