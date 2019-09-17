@@ -7,7 +7,7 @@ exports[`RetrosList component should render correctly with retros 1`] = `
   <p>
     Retros
   </p>
-  <p>
+  <div>
     <Retro
       key="1"
       retro={
@@ -44,7 +44,7 @@ exports[`RetrosList component should render correctly with retros 1`] = `
         }
       }
     />
-  </p>
+  </div>
 </div>
 `;
 

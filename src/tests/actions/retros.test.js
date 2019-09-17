@@ -15,6 +15,8 @@ import database from '../../config/firebase';
 import retros from '../fixtures/retros';
 
 const middlewares = [thunk];
+const uid = 'testuid';
+const defaultAuthState = { firebase: { auth: { uid } } };
 const createMockStore = configureMockStore(middlewares);
 
 describe('Retros action generator', () => {
@@ -68,12 +70,12 @@ describe('Retros async actions', () => {
             retrosFixture[id] = { title, description, author, createdAt };
         });
         database
-            .ref('retros')
+            .ref(`users/${uid}/retros`)
             .set(retrosFixture)
             .then(() => done());
     });
     it('should add retro to database and then to store', done => {
-        const store = createMockStore({});
+        const store = createMockStore(defaultAuthState);
         const newRetro = {
             title: 'Test retro',
             author: 'Test author',
@@ -94,7 +96,7 @@ describe('Retros async actions', () => {
             ]);
 
             database
-                .ref(`retros/${actions[0].retro.id}`)
+                .ref(`users/${uid}/retros/${actions[0].retro.id}`)
                 .once('value')
                 .then(snapshot => {
                     expect(snapshot.val()).toEqual(newRetro);
@@ -104,7 +106,7 @@ describe('Retros async actions', () => {
     });
 
     it('should add default values retro to database and then to store', done => {
-        const store = createMockStore({});
+        const store = createMockStore(defaultAuthState);
         const newRetro = {
             title: '',
             author: '',
@@ -125,7 +127,7 @@ describe('Retros async actions', () => {
             ]);
 
             database
-                .ref(`retros/${actions[0].retro.id}`)
+                .ref(`users/${uid}/retros/${actions[0].retro.id}`)
                 .once('value')
                 .then(snapshot => {
                     expect(snapshot.val()).toEqual(newRetro);
@@ -135,7 +137,7 @@ describe('Retros async actions', () => {
     });
 
     it('should fetch retros from db', done => {
-        const store = createMockStore({});
+        const store = createMockStore(defaultAuthState);
 
         store.dispatch(startSetRetros()).then(() => {
             const actions = store.getActions();
@@ -148,7 +150,7 @@ describe('Retros async actions', () => {
     });
 
     it('should remove retro from db and then from store', done => {
-        const store = createMockStore({});
+        const store = createMockStore(defaultAuthState);
         const id = retros[2].id;
 
         store.dispatch(startRemoveRetro(id)).then(() => {
@@ -159,7 +161,7 @@ describe('Retros async actions', () => {
             });
 
             database
-                .ref(`retros/id`)
+                .ref(`users/${uid}/retros/id`)
                 .once('value')
                 .then(snapshot => {
                     expect(snapshot.val()).toBeFalsy();
@@ -169,7 +171,7 @@ describe('Retros async actions', () => {
     });
 
     it('should update retro in db and then in store', done => {
-        const store = createMockStore({});
+        const store = createMockStore(defaultAuthState);
         const id = retros[2].id;
         const updates = {
             author: 'The Scrum Master'
@@ -185,7 +187,7 @@ describe('Retros async actions', () => {
         });
 
         return database
-            .ref(`retros/${id}`)
+            .ref(`users/${uid}/retros/${id}`)
             .once('value')
             .then(snapshot => {
                 expect(snapshot.val().author).toBe(updates.author);

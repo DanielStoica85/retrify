@@ -5,16 +5,14 @@ const authReducerDefaultState = {
 export default (state = authReducerDefaultState, action) => {
     switch (action.type) {
         case 'LOGIN_SUCCESS':
-            console.log('Login worked!');
             return {
                 ...state,
                 authError: null
             };
         case 'LOGIN_ERROR':
-            console.log('Login error!');
             return {
                 ...state,
-                authError: 'Login failed'
+                authError: 'Invalid credentials. Please try again.'
             };
         case 'LOGOUT_SUCCESS':
             return state;
