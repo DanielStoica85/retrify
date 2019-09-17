@@ -3,7 +3,7 @@ import { NavLink, NavItem, Badge, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 
-const SignedInLinks = props => {
+export const SignedInLinks = props => {
     return (
         <React.Fragment>
             <NavItem>

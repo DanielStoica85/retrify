@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SignedInLinks from '../../../components/layout/SignedInLinks';
+import { SignedInLinks } from '../../../components/layout/SignedInLinks';
 
 describe('SignedInLinks component', () => {
     it('should render correctly', () => {

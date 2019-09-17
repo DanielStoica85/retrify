@@ -1,6 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navigation component should render correctly 1`] = `
+exports[`Navigation component should render correctly with user authentified 1`] = `
+<div>
+  <Navbar
+    className="mb-5"
+    color="dark"
+    dark={true}
+    expand="sm"
+    tag="nav"
+  >
+    <Container
+      tag="div"
+    >
+      <NavbarBrand
+        href="/"
+        tag="a"
+      >
+        Retrify
+      </NavbarBrand>
+      <NavbarToggler
+        onClick={[Function]}
+        tag="button"
+        type="button"
+      />
+      <Collapse
+        appear={false}
+        enter={true}
+        exit={true}
+        in={false}
+        isOpen={false}
+        mountOnEnter={false}
+        navbar={true}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        tag="div"
+        timeout={350}
+        unmountOnExit={false}
+      >
+        <Nav
+          className="ml-auto"
+          navbar={true}
+          tag="ul"
+          vertical={false}
+        >
+          <Connect(SignedInLinks) />
+        </Nav>
+      </Collapse>
+    </Container>
+  </Navbar>
+</div>
+`;
+
+exports[`Navigation component should render correctly without user authentified 1`] = `
 <div>
   <Navbar
     className="mb-5"
@@ -48,7 +103,6 @@ exports[`Navigation component should render correctly 1`] = `
           vertical={false}
         >
           <SignedOutLinks />
-          <SignedInLinks />
         </Nav>
       </Collapse>
     </Container>
@@ -103,8 +157,7 @@ exports[`Navigation component should set isOpen on  navbarToggler click 1`] = `
           tag="ul"
           vertical={false}
         >
-          <SignedOutLinks />
-          <SignedInLinks />
+          <Connect(SignedInLinks) />
         </Nav>
       </Collapse>
     </Container>

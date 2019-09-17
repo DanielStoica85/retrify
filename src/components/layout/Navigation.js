@@ -13,7 +13,7 @@ import SignedOutLinks from './SignedOutLinks';
 
 import { connect } from 'react-redux';
 
-class Navigation extends Component {
+export class Navigation extends Component {
     state = {
         isOpen: false
     };
