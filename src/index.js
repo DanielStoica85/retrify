@@ -7,18 +7,29 @@ import App from './App';
 import createStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import { startSetRetros } from './actions/retros';
+import { firebase } from './config/firebase';
 
 const store = createStore();
 
-store.firebaseAuthIsReady.then(() => {
-    store.dispatch(startSetRetros()).then(() => {
+firebase.auth().onAuthStateChanged(() => {
+    const uid = store.getState().firebase.auth.uid;
+    if (!uid) {
         ReactDOM.render(
             <Provider store={store}>
                 <App />
             </Provider>,
             document.getElementById('root')
         );
-    });
+    } else {
+        store.dispatch(startSetRetros()).then(() => {
+            ReactDOM.render(
+                <Provider store={store}>
+                    <App />
+                </Provider>,
+                document.getElementById('root')
+            );
+        });
+    }
 });
 
 // ReactDOM.render(<p>Loading retros...</p>, document.getElementById('root'));
