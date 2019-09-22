@@ -24,7 +24,7 @@ exports[`SignedInLinks component should render correctly 1`] = `
         pill={true}
         tag="span"
       >
-        D.S.
+        DS
       </Badge>
     </NavLink>
   </NavItem>

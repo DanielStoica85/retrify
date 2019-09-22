@@ -12,7 +12,7 @@ export const SignedInLinks = props => {
             <NavItem>
                 <NavLink href="/">
                     <Badge color="danger" pill>
-                        D.S.
+                        {props.profile.initials.toUpperCase()}
                     </Badge>
                 </NavLink>
             </NavItem>

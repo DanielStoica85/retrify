@@ -16,6 +16,18 @@ export default (state = authReducerDefaultState, action) => {
             };
         case 'LOGOUT_SUCCESS':
             return state;
+        case 'SIGNUP_SUCCESS':
+            console.log('Signup success!');
+            return {
+                ...state,
+                authError: null
+            };
+        case 'SIGNUP_ERROR':
+            console.log('Signup error!', action.err.message);
+            return {
+                ...state,
+                authError: action.err.message
+            };
         default:
             return state;
     }
