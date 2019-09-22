@@ -68,7 +68,7 @@ describe('RetroForm component', () => {
             preventDefault: () => {}
         });
         expect(component.state('error')).toBe(
-            'Please provide a title, author name and a date for this retro.'
+            'Please provide a title, author name, retro type and a date for this retro.'
         );
         expect(component).toMatchSnapshot();
     });
@@ -86,6 +86,7 @@ describe('RetroForm component', () => {
             author: retros[0].author,
             createdAt: retros[0].createdAt,
             description: retros[0].description,
+            type: retros[0].type,
             title: retros[0].title
         });
     });

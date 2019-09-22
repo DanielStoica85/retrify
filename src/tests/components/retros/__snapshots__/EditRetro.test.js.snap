@@ -19,6 +19,7 @@ exports[`EditRetro component should render correctly 1`] = `
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.",
         "id": "2",
         "title": "Second Retro",
+        "type": "What went well / What did not go well",
       }
     }
   />

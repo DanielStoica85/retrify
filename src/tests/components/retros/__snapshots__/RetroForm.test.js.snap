@@ -33,6 +33,22 @@ exports[`RetroForm component should render correctly 1`] = `
     labelText="Description"
     value=""
   />
+  <LabeledFormSelect
+    handleChange={[Function]}
+    inputId="type"
+    inputName="type"
+    inputType="select"
+    labelFor="type"
+    labelText="Type of Retrospective*"
+    options={
+      Array [
+        "Select",
+        "What went well / What did not go well",
+        "Start / Stop / Continue",
+      ]
+    }
+    value=""
+  />
   <FormGroup
     tag="div"
   >
@@ -188,6 +204,22 @@ exports[`RetroForm component should render correctly with expense data 1`] = `
     labelText="Description"
     value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit."
   />
+  <LabeledFormSelect
+    handleChange={[Function]}
+    inputId="type"
+    inputName="type"
+    inputType="select"
+    labelFor="type"
+    labelText="Type of Retrospective*"
+    options={
+      Array [
+        "Select",
+        "What went well / What did not go well",
+        "Start / Stop / Continue",
+      ]
+    }
+    value="What went well / What did not go well"
+  />
   <FormGroup
     tag="div"
   >
@@ -342,7 +374,7 @@ exports[`RetroForm component should render error for invalid form submission 1`]
       }
     }
   >
-    Please provide a title, author name and a date for this retro.
+    Please provide a title, author name, retro type and a date for this retro.
   </Alert>
   <LabeledFormInput
     handleChange={[Function]}
@@ -370,6 +402,22 @@ exports[`RetroForm component should render error for invalid form submission 1`]
     inputType="textarea"
     labelFor="description"
     labelText="Description"
+    value=""
+  />
+  <LabeledFormSelect
+    handleChange={[Function]}
+    inputId="type"
+    inputName="type"
+    inputType="select"
+    labelFor="type"
+    labelText="Type of Retrospective*"
+    options={
+      Array [
+        "Select",
+        "What went well / What did not go well",
+        "Start / Stop / Continue",
+      ]
+    }
     value=""
   />
   <FormGroup

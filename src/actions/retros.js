@@ -14,10 +14,11 @@ export const startAddRetro = (retroData = {}) => {
             title = '',
             description = '',
             createdAt = 0,
+            type = '',
             author = ''
         } = retroData;
 
-        const retro = { title, description, createdAt, author };
+        const retro = { title, description, createdAt, type, author };
 
         return database
             .ref(`users/${uid}/retros`)
