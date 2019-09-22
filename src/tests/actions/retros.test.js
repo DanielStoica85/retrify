@@ -66,9 +66,17 @@ describe('Retros async actions', () => {
     beforeEach(done => {
         // seed test db before each test
         let retrosFixture = [];
-        retros.forEach(({ id, title, description, author, createdAt }) => {
-            retrosFixture[id] = { title, description, author, createdAt };
-        });
+        retros.forEach(
+            ({ id, title, description, type, author, createdAt }) => {
+                retrosFixture[id] = {
+                    title,
+                    description,
+                    type,
+                    author,
+                    createdAt
+                };
+            }
+        );
         database
             .ref(`users/${uid}/retros`)
             .set(retrosFixture)
@@ -79,6 +87,7 @@ describe('Retros async actions', () => {
         const newRetro = {
             title: 'Test retro',
             author: 'Test author',
+            type: 'What went well',
             createdAt: 8736823746,
             description: 'Test description'
         };
@@ -110,6 +119,7 @@ describe('Retros async actions', () => {
         const newRetro = {
             title: '',
             author: '',
+            type: '',
             createdAt: 0,
             description: ''
         };

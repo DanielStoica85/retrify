@@ -14,6 +14,7 @@ describe('Retros reducer', () => {
                 id: 4,
                 title: 'Fourth Retro',
                 author: 'Mitica',
+                type: 'Start / Stop / Continue',
                 description:
                     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.',
                 createdAt: 1564396263000

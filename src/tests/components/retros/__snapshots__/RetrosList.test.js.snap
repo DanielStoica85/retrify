@@ -17,6 +17,7 @@ exports[`RetrosList component should render correctly with retros 1`] = `
           "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.",
           "id": "1",
           "title": "First Retro",
+          "type": "What went well / What did not go well",
         }
       }
     />
@@ -29,6 +30,7 @@ exports[`RetrosList component should render correctly with retros 1`] = `
           "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.",
           "id": "2",
           "title": "Second Retro",
+          "type": "What went well / What did not go well",
         }
       }
     />
@@ -41,6 +43,7 @@ exports[`RetrosList component should render correctly with retros 1`] = `
           "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti itaque aut eligendi laborum excepturi animi hic similique impedit enim velit.",
           "id": "3",
           "title": "Third Retro",
+          "type": "Start / Stop / Continue",
         }
       }
     />
