@@ -25,8 +25,12 @@ export class Navigation extends Component {
     };
 
     render() {
-        const { auth } = this.props;
-        const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+        const { auth, profile } = this.props;
+        const links = auth.uid ? (
+            <SignedInLinks profile={profile} />
+        ) : (
+            <SignedOutLinks />
+        );
         return (
             <div>
                 <Navbar color="dark" dark expand="sm" className="mb-5">
@@ -47,7 +51,8 @@ export class Navigation extends Component {
 
 const mapStateToProps = state => {
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        profile: state.firebase.profile
     };
 };
 
